@@ -1,30 +1,53 @@
 <form>
-  <label for="nazov">Názov reštaurácie:</label><br>
-  <input type="text" id="nazov" name="nazov" required><br>
+  <mat-form-field>
+    <mat-label for="nazov">Názov reštaurácie:</mat-label>
+    <input matInput type="text" id="nazov" name="nazov" required>
+  </mat-form-field><br>
 
-  <label for="typ">Typ reštaurácie:</label><br>
+  <mat-form-field>
+    <mat-label for="typ">Typ reštaurácie:</mat-label>
+    <select matNativeControl required id="typ" name="typ">
+      <option value="fastfood">Fastfood</option>
+      <option value="vegetarian">Vegetariánska</option>
+      <option value="azijska">Ázijská</option>
+      <option value="dezert">Dezert</option>
+      <option value="iny">Iný</option>
+    </select>
+  </mat-form-field><br>
+
+  <!--<label for="typ">Typ reštaurácie:</label><br>
   <select id="typ" name="typ">
     <option value="fastfood">Fastfood</option>
     <option value="vegetarian">Vegetariánska</option>
     <option value="azijska">Ázijská</option>
     <option value="dezert">Dezert</option>
     <option value="iny">Iný</option>
-  </select><br>
+  </select><br>-->
 
-  <label for="telefon">Telefónne číslo:</label><br>
-  <input type="tel" id="telefon" name="telefon" required><br>
+  <mat-form-field>
+    <mat-label for="telefon">Telefónne číslo:</mat-label>
+    <input matInput type="tel" id="telefon" name="telefon" required>
+  </mat-form-field><br>
 
-  <label for="heslo">Heslo:</label><br>
-  <input type="password" id="heslo" name="heslo" required><br>
+  <mat-form-field>
+    <mat-label for="heslo">Heslo:</mat-label>
+    <input matInput type="password" id="heslo" name="heslo" required>
+  </mat-form-field><br>
 
-  <label for="ulica">Ulica:</label><br>
-  <input type="text" id="ulica" name="ulica" required><br>
+  <mat-form-field>
+    <mat-label for="mesto">Mesto:</mat-label>
+    <input matInput type="text" id="mesto" name="mesto" required>
+  </mat-form-field><br>
 
-  <label for="mesto">Mesto:</label><br>
-  <input type="text" id="mesto" name="mesto" required><br>
+  <mat-form-field>
+    <mat-label for="ulica">Ulica:</mat-label>
+    <input matInput type="text" id="ulica" name="ulica" required>
+  </mat-form-field><br>
 
-  <label for="psc">PSČ:</label><br>
-  <input type="text" id="psc" name="psc" required><br><br>
+  <mat-form-field>
+    <mat-label for="psc">PSČ:</mat-label>
+    <input matInput type="text" id="psc" name="psc" required>
+  </mat-form-field><br>
 
-  <input type="submit" value="Odoslať">
+  <button mat-flat-button type="submit">Odoslať</button>
 </form>
