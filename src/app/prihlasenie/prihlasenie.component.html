@@ -1,1 +1,20 @@
-<p>prihlasenie works!</p>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prihlásenie používateľa</title>
+    <link rel="stylesheet" type="text/css" href="prihlasenie.component.css">
+  </head>
+
+  <body>
+    <form action="/prihlasenie.php" method="post">
+      <label for="username">Používateľské meno:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Heslo:</label>
+      <input type="password" id="password" name="password" required>
+
+      <input type="submit" value="Prihlásiť sa">
+    </form>
+  </body>
+</html>
