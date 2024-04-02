@@ -1,1 +1,33 @@
-<p>kontakt works!</p>
+<div class="container">
+  <h1>Kontaktný formulár</h1>
+
+  <form [formGroup]="formular">
+    <mat-form-field>
+      <mat-label for="meno">Meno:</mat-label>
+      <input matInput type="text" id="meno" name="meno" required>
+    </mat-form-field><br>
+
+    <mat-form-field>
+      <mat-label>E-mail:</mat-label>
+      <input matInput type="email" id="email" name="email" required>
+    </mat-form-field><br>
+
+    <mat-form-field>
+      <mat-label>Pripomienky:</mat-label>
+      <textarea matInput id="pripomienky" name="pripomienky" rows="5" required></textarea>
+    </mat-form-field><br>
+
+    <button mat-flat-button type="submit">Odoslať</button>
+  </form>
+
+  <hr>
+
+  <div class="company-info">
+    <p>QuickEats, s. r. o.</p>
+    <p>Tajovskeho 51,</p>
+    <p>Banska Bystrica</p>
+    <p>Tel: +423 434 578</p>
+    <p><a href="http://www.quickeats.com">QuickEats</a></p>
+  </div>
+</div>
+
