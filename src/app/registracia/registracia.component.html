@@ -1,0 +1,39 @@
+<form [formGroup]="formular">
+
+  <mat-form-field>
+    <mat-label for="meno">Meno:</mat-label>
+    <input matInput type="text" id="meno" name="meno" required>
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <mat-label>Telefónne číslo:</mat-label>
+    <input matInput type="tel" id="telefon" name="telefon" required>
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <mat-label>E-mail:</mat-label>
+    <input matInput type="email" id="email" name="email" required>
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <mat-label>Heslo:</mat-label>
+    <input matInput type="password" id="heslo" name="heslo" required>
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <mat-label>Mesto:</mat-label>
+    <input matInput type="text" id="mesto" name="mesto" required>
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <mat-label>Ulica:</mat-label>
+    <input matInput type="text" id="ulica" name="ulica" required>
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <mat-label>PSČ:</mat-label>
+    <input matInput type="text" id="psc" name="psc" required>
+  </mat-form-field><br>
+
+  <button mat-flat-button type="submit">Odoslať</button>
+</form>
