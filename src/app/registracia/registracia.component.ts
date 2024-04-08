@@ -32,22 +32,22 @@ export class RegistraciaComponent {
 
 
   formular = this.formBuilder.group({
-    meno: ['', Validators.required],
-    tel_cislo: ['', Validators.required],
+    username: ['', Validators.required],
+    telNumber: ['', Validators.required],
     email: ['', Validators.required],
-    heslo: ['', Validators.required],
-    mesto: ['', Validators.required],
-    ulica: ['', Validators.required],
-    psc: ['', Validators.required]
+    password: ['', Validators.required],
+    cityName: ['', Validators.required],
+    streetName: ['', Validators.required],
+    postCode: ['', Validators.required]
   });
   onSubmit() {
     console.log(this.formular.value);
-    if (this.formular.value.meno != null && this.formular.value.tel_cislo != null && this.formular.value.email != null && this.formular.value.heslo != null && this.formular.value.mesto != null && this.formular.value.ulica != null && this.formular.value.psc != null) {
-      let zakaznik: Zakaznik = new Zakaznik(null, this.formular.value.meno, Number(this.formular.value.tel_cislo), this.formular.value.email, this.formular.value.heslo, this.formular.value.mesto, this.formular.value.ulica, Number(this.formular.value.psc));
+    if (this.formular.value.username != null && this.formular.value.telNumber != null && this.formular.value.email != null && this.formular.value.password != null && this.formular.value.cityName != null && this.formular.value.streetName != null && this.formular.value.postCode != null) {
+      let zakaznik: Zakaznik = new Zakaznik(null, this.formular.value.username, Number(this.formular.value.telNumber), this.formular.value.email, this.formular.value.password, this.formular.value.cityName, this.formular.value.streetName, Number(this.formular.value.postCode));
       this.zakaznikService.vytvorZakaznika(zakaznik).subscribe({
         next: (id) => {
           console.log('zakaznikl vytvorený')
-          zakaznik.id_zakaznika = id;
+          zakaznik.customerId = id;
           this.newZakaznikEvent.emit(zakaznik);
         },
         error: (e) => {

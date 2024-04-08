@@ -1,22 +1,22 @@
 export class Zakaznik {
-  id_zakaznika: number|null;
-  meno: string;
-  tel_cislo: number;
+  customerId: number|null;
+  username: string;
+  telNumber: number;
   email: string;
-  heslo: string;
-  mesto: string;
-  ulica: string;
-  psc: number;
+  password: string;
+  cityName: string;
+  streetName: string;
+  postCode: number;
 
 
-  constructor(id_zakaznika: number|null, meno: string,tel_cislo: number, email: string, heslo: string, ulica: string, mesto: string, psc: number) {
-    this.id_zakaznika = id_zakaznika;
-    this.meno = meno;
-    this.tel_cislo = tel_cislo;
+  constructor(customerId: number|null, username: string,telNumber: number, email: string, password: string, streetName: string, cityName: string, postCode: number) {
+    this.customerId = customerId;
+    this.username = username;
+    this.telNumber = telNumber;
     this.email = email;
-    this.heslo = heslo;
-    this.mesto = mesto;
-    this.ulica = ulica;
-    this.psc = psc;
+    this.password = password;
+    this.cityName = cityName;
+    this.streetName = streetName;
+    this.postCode = postCode;
   }
 }
