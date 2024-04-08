@@ -1,12 +1,12 @@
-<form>
+<form [formGroup]="formular" (ngSubmit)="onSubmit()" >
   <mat-form-field>
     <mat-label for="nazov">Názov reštaurácie:</mat-label>
-    <input matInput type="text" id="nazov" name="nazov" required>
+    <input matInput type="text" id="nazov" name="nazov" formControlName="nazov" required>
   </mat-form-field><br>
 
   <mat-form-field>
     <mat-label for="typ">Typ reštaurácie:</mat-label>
-    <select matNativeControl required id="typ" name="typ">
+    <select matNativeControl required id="typ" name="typ" formControlName="typ">
       <option value="fastfood">Fastfood</option>
       <option value="vegetarian">Vegetariánska</option>
       <option value="azijska">Ázijská</option>
@@ -25,29 +25,29 @@
   </select><br>-->
 
   <mat-form-field>
-    <mat-label for="telefon">Telefónne číslo:</mat-label>
-    <input matInput type="tel" id="telefon" name="telefon" required>
+    <mat-label for="tel_cislo">Telefónne číslo:</mat-label>
+    <input matInput type="tel" id="tel_cislo" name="tel_cislo" formControlName="tel_cislo" required>
   </mat-form-field><br>
 
   <mat-form-field>
     <mat-label for="heslo">Heslo:</mat-label>
-    <input matInput type="password" id="heslo" name="heslo" required>
+    <input matInput type="password" id="heslo" name="heslo" formControlName="heslo" required>
   </mat-form-field><br>
 
   <mat-form-field>
     <mat-label for="mesto">Mesto:</mat-label>
-    <input matInput type="text" id="mesto" name="mesto" required>
+    <input matInput type="text" id="mesto" name="mesto" formControlName="mesto" required>
   </mat-form-field><br>
 
   <mat-form-field>
     <mat-label for="ulica">Ulica:</mat-label>
-    <input matInput type="text" id="ulica" name="ulica" required>
+    <input matInput type="text" id="ulica" name="ulica" formControlName="ulica" required>
   </mat-form-field><br>
 
   <mat-form-field>
     <mat-label for="psc">PSČ:</mat-label>
-    <input matInput type="text" id="psc" name="psc" required>
+    <input matInput type="text" id="psc" name="psc" formControlName="psc" required>
   </mat-form-field><br>
 
-  <button mat-flat-button type="submit">Odoslať</button>
+  <button mat-flat-button type="submit" [disabled]="!formular.valid" >Odoslať</button>
 </form>
