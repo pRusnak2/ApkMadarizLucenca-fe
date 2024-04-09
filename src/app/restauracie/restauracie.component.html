@@ -1,6 +1,6 @@
 <h1>Restauracie</h1>
 
-<div *ngFor="let restauracia of restauracie">
+<!--<div *ngFor="let restauracia of restauracie">
   <h3>{{ restauracia.name }}</h3>
   <p>Type: {{ restauracia.type }}</p>
   <p>Tel. Number: {{ restauracia.telNumber }}</p>
@@ -8,6 +8,22 @@
   <p>City Name: {{ restauracia.cityName }}</p>
   <p>Street Name: {{ restauracia.streetName }}</p>
   <p>Post Code: {{ restauracia.postCode }}</p>
+</div>-->
+<div *ngFor="let restauracia of restauracie">
+  <mat-card class="restaurant-card">
+    <mat-card-header>
+      <mat-card-subtitle>Typ: {{ restauracia.type }}</mat-card-subtitle>
+      <mat-card-title>{{ restauracia.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Tel. Číslo: {{ restauracia.telNumber }}</p>
+      <p>Mesto: {{ restauracia.cityName }}</p>
+      <p>Ulica: {{ restauracia.streetName }}</p>
+      <p>PSČ: {{ restauracia.postCode }}</p>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-footer>
+      <mat-progress-bar mode="buffer"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
 </div>
-
-

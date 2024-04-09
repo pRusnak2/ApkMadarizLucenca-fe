@@ -1,0 +1,7 @@
+.restaurant-card{
+  max-width: 400px;
+  /*background-color: #e5383b;*/
+  background-color: #da1e37;
+  padding: 5px;
+  margin: 5px;
+}
