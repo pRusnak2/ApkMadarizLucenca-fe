@@ -1,1 +1,13 @@
-<p>restauracie works!</p>
+<h1>Restauracie</h1>
+
+<div *ngFor="let restauracia of restauracie">
+  <h3>{{ restauracia.name }}</h3>
+  <p>Type: {{ restauracia.type }}</p>
+  <p>Tel. Number: {{ restauracia.telNumber }}</p>
+  <p>Username: {{ restauracia.username }}</p>
+  <p>City Name: {{ restauracia.cityName }}</p>
+  <p>Street Name: {{ restauracia.streetName }}</p>
+  <p>Post Code: {{ restauracia.postCode }}</p>
+</div>
+
+
