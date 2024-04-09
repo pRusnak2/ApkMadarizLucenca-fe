@@ -1,7 +1,17 @@
 <form [formGroup]="formular" (ngSubmit)="onSubmit()" >
 
   <mat-form-field>
-    <mat-label for="meno">Meno:</mat-label>
+    <mat-label for="meno">Krstné meno:</mat-label>
+    <input matInput type="text" id="krstnemeno" name="krstnemeno" formControlName="firstName" required>
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <mat-label for="meno">Priezvisko:</mat-label>
+    <input matInput type="text" id="priezvisko" name="priezvisko" formControlName="lastName" required>
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <mat-label for="meno">Používateľské meno:</mat-label>
     <input matInput type="text" id="meno" name="meno" formControlName="username" required>
   </mat-form-field><br>
 

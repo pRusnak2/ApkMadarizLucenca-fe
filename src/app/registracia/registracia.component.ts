@@ -42,13 +42,15 @@ export class RegistraciaComponent {
     password: ['', Validators.required],
     cityName: ['', Validators.required],
     streetName: ['', Validators.required],
-    postCode: ['', Validators.required]
+    postCode: ['', Validators.required],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required]
   });
 
   onSubmit() {
     console.log(this.formular.value);
-    if (this.formular.value.username != null && this.formular.value.telNumber != null && this.formular.value.email != null && this.formular.value.password != null && this.formular.value.cityName != null && this.formular.value.streetName != null && this.formular.value.postCode != null) {
-      let zakaznik: Zakaznik = new Zakaznik(null, this.formular.value.username, Number(this.formular.value.telNumber), this.formular.value.email, this.formular.value.password, this.formular.value.cityName, this.formular.value.streetName, Number(this.formular.value.postCode));
+    if (this.formular.value.username != null && this.formular.value.telNumber != null && this.formular.value.email != null && this.formular.value.password != null && this.formular.value.cityName != null && this.formular.value.streetName != null && this.formular.value.postCode != null && this.formular.value.firstName != null && this.formular.value.password != null && this.formular.value.postCode != null && this.formular.value.lastName != null) {
+      let zakaznik: Zakaznik = new Zakaznik(null, this.formular.value.username, Number(this.formular.value.telNumber), this.formular.value.email, this.formular.value.password, this.formular.value.streetName, this.formular.value.cityName, Number(this.formular.value.postCode), this.formular.value.firstName, this.formular.value.lastName);
       this.zakaznikService.vytvorZakaznika(zakaznik).subscribe({
         next: (id) => {
           console.log('Zákazník vytvorený');
