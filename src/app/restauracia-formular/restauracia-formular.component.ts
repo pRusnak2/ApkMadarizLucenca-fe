@@ -8,6 +8,8 @@ import {MatIcon} from "@angular/material/icon";
 import {MatButtonModule} from '@angular/material/button';
 import {Restauracia} from "../model/restauracia.model";
 import {RestauraciaService} from "../services/restauracia.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-restauracia-formular',
@@ -27,7 +29,7 @@ import {RestauraciaService} from "../services/restauracia.service";
 })
 export class RestauraciaFormularComponent {
 
-  constructor(private formBuilder: FormBuilder, private restauraciaService: RestauraciaService) {}
+  constructor(private formBuilder: FormBuilder, private restauraciaService: RestauraciaService, private router: Router,private snackBar: MatSnackBar) {}
 
   @Output() newRestauraciaEvent = new EventEmitter<Restauracia>();
 
@@ -55,9 +57,17 @@ export class RestauraciaFormularComponent {
           },
           error: (e) => {
             console.error('chyba vytvarania restauracie!')
+            this.router.navigate(['/registracia']);
+            this.snackBar.open('Registrácia nebola úspešná, skúste to znova', 'Zavrieť', {
+              duration: 20000
+            });
           },
           complete: () => {
             console.log('hotovo')
+            this.router.navigate(['/prihlasenie']);
+            this.snackBar.open('Registrácia bola úspešná, prosím prihláste sa', 'Zavrieť', {
+              duration: 20000
+            });
           }
         });
     }
