@@ -31,20 +31,22 @@ export class RestauraciaFormularComponent {
 
   @Output() newRestauraciaEvent = new EventEmitter<Restauracia>();
 
-  formular: FormGroup = this.formBuilder.group({
-    nazov: ['', Validators.required],
-    typ: ['', Validators.required],
-    tel_cislo: ['', Validators.required],
-    heslo: ['', Validators.required],
-    mesto: ['', Validators.required],
-    ulica: ['', Validators.required],
-    psc: ['', Validators.required]
+  //formular: = this.formBuilder.group({
+  formular = this.formBuilder.group({
+    name: ['', Validators.required],
+    type: ['', Validators.required],
+    telNumber: ['', Validators.required],
+    username: ['', Validators.required],
+    password: ['', Validators.required],
+    streetName: ['', Validators.required],
+    cityName: ['', Validators.required],
+    postCode: ['', Validators.required]
   });
 
   onSubmit() {
     console.log(this.formular.value);
-    if (this.formular.value.nazov != null && this.formular.value.typ != null && this.formular.value.tel_cislo != null && this.formular.value.heslo != null && this.formular.value.mesto != null && this.formular.value.ulica != null && this.formular.value.psc != null) {
-        let restauracia: Restauracia = new Restauracia(null, this.formular.value.nazov, this.formular.value.typ, Number(this.formular.value.tel_cislo), this.formular.value.heslo, this.formular.value.mesto, this.formular.value.ulica, Number(this.formular.value.psc));
+    if (this.formular.value.name != null && this.formular.value.type != null && this.formular.value.telNumber != null && this.formular.value.username != null && this.formular.value.password != null && this.formular.value.cityName != null && this.formular.value.streetName != null && this.formular.value.postCode != null) {
+        let restauracia: Restauracia = new Restauracia(null, this.formular.value.name, this.formular.value.type, Number(this.formular.value.telNumber), this.formular.value.username, this.formular.value.password, this.formular.value.streetName, this.formular.value.cityName, Number(this.formular.value.postCode));
         this.restauraciaService.vytvorRestauraciu(restauracia).subscribe({
           next: (id) => {
             console.log('restauracia vytvorena')

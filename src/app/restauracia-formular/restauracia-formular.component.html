@@ -1,12 +1,12 @@
 <form [formGroup]="formular" (ngSubmit)="onSubmit()" >
   <mat-form-field>
     <mat-label for="nazov">Názov reštaurácie:</mat-label>
-    <input matInput type="text" id="nazov" name="nazov" formControlName="nazov" required>
+    <input matInput type="text" id="nazov" name="name" formControlName="name" required>
   </mat-form-field><br>
 
   <mat-form-field>
     <mat-label for="typ">Typ reštaurácie:</mat-label>
-    <select matNativeControl required id="typ" name="typ" formControlName="typ">
+    <select matNativeControl required id="typ" name="type" formControlName="type">
       <option value="fastfood">Fastfood</option>
       <option value="vegetarian">Vegetariánska</option>
       <option value="azijska">Ázijská</option>
@@ -26,27 +26,32 @@
 
   <mat-form-field>
     <mat-label for="tel_cislo">Telefónne číslo:</mat-label>
-    <input matInput type="tel" id="tel_cislo" name="tel_cislo" formControlName="tel_cislo" required>
+    <input matInput type="tel" id="tel_cislo" name="telNumber" formControlName="telNumber" required>
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <mat-label for="username">Používateľské meno:</mat-label>
+    <input matInput type="text" id="username" name="username" formControlName="username" required>
   </mat-form-field><br>
 
   <mat-form-field>
     <mat-label for="heslo">Heslo:</mat-label>
-    <input matInput type="password" id="heslo" name="heslo" formControlName="heslo" required>
-  </mat-form-field><br>
-
-  <mat-form-field>
-    <mat-label for="mesto">Mesto:</mat-label>
-    <input matInput type="text" id="mesto" name="mesto" formControlName="mesto" required>
+    <input matInput type="password" id="heslo" name="password" formControlName="password" required>
   </mat-form-field><br>
 
   <mat-form-field>
     <mat-label for="ulica">Ulica:</mat-label>
-    <input matInput type="text" id="ulica" name="ulica" formControlName="ulica" required>
+    <input matInput type="text" id="ulica" name="streetName" formControlName="streetName" required>
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <mat-label for="mesto">Mesto:</mat-label>
+    <input matInput type="text" id="mesto" name="cityName" formControlName="cityName" required>
   </mat-form-field><br>
 
   <mat-form-field>
     <mat-label for="psc">PSČ:</mat-label>
-    <input matInput type="text" id="psc" name="psc" formControlName="psc" required>
+    <input matInput type="text" id="psc" name="postCode" formControlName="postCode" required>
   </mat-form-field><br>
 
   <button mat-flat-button type="submit" [disabled]="!formular.valid" >Odoslať</button>

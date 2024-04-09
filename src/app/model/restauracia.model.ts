@@ -1,22 +1,24 @@
 export class Restauracia {
   id_restauracie: number|null;
-  nazov: string;
-  typ: string;
-  tel_cislo: number;
-  heslo: string;
-  mesto: string;
-  ulica: string;
-  psc: number;
+  name: string;
+  type: string;
+  telNumber: number;
+  username: string;
+  password: string;
+  cityName: string;
+  streetName: string;
+  postCode: number;
 
 
-  constructor(id_restauracie: number|null, nazov: string, typ: string, tel_cislo: number, heslo: string, ulica: string, mesto: string, psc: number) {
+  constructor(id_restauracie: number | null, nazov: string, typ: string, tel_cislo: number, username: string, heslo: string, ulica: string, mesto: string, psc: number) {
     this.id_restauracie = id_restauracie;
-    this.nazov = nazov;
-    this.typ = typ;
-    this.tel_cislo = tel_cislo;
-    this.heslo = heslo;
-    this.mesto = mesto;
-    this.ulica = ulica;
-    this.psc = psc;
+    this.name = nazov;
+    this.type = typ;
+    this.telNumber = tel_cislo;
+    this.username = username;
+    this.password = heslo;
+    this.cityName = mesto;
+    this.streetName = ulica;
+    this.postCode = psc;
   }
 }
