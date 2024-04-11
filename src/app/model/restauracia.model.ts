@@ -1,5 +1,5 @@
 export class Restauracia {
-  id_restauracie: number|null;
+  id_restauracie: number | null;
   name: string;
   type: string;
   telNumber: number;

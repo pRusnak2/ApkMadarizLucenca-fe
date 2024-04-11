@@ -1,5 +1,23 @@
 <h1>Restauracie</h1>
 
+<h2>Zoradiť podľa mesta</h2>
+<select id="sortByCity" (change)="zmenaZoradeniaMesta($event)">
+  <option value="">Všetky</option>
+  <option value="Martin">Martin</option>
+  <option value="Banská Bystrica">Banská Bystrica</option>
+  <option value="Bratislava">Bratislava</option>
+  <option value="Košice">Košice</option>
+</select>
+
+<h2>Zoradiť podľa typu</h2>
+<select id="sortByType" (change)="zmenaZoradeniaTypu($event)">
+  <option value="">Všetky</option>
+  <option value="fastfood">Fastfood</option>
+  <option value="vegetarian">Vegetariánska</option>
+  <option value="azijska">Ázijská</option>
+  <option value="dezert">Dezert</option>
+  <option value="iny">Iný</option>
+</select>
 
 <div *ngFor="let restauracia of restauracie">
   <mat-card class="restaurant-card">

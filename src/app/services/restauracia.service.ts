@@ -15,7 +15,7 @@ export class RestauraciaService {
     return this.http.post<number>(this.apiUrlRestauracia, restauracia);
   }
 
-  ziskajVsetkyObsahyRestauracii(): Observable<any[]> {
+  ziskajVsetkyObsahyRestauracii(sortBy: string): Observable<any[]> {
     const apiUrl = `${this.apiUrlRestauracia}/vsetky`;
     return this.http.get<any[]>(apiUrl);
   }

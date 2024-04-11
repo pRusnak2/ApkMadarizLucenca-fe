@@ -22,18 +22,40 @@ export class RestauracieComponent implements OnInit {
   constructor(private restauraciaService: RestauraciaService) { }
 
   ngOnInit(): void {
+    // @ts-ignore
     this.ziskajVsetkyRestauracie();
   }
 
+  mesto: string = '';
+  typ: string = '';
+
   ziskajVsetkyRestauracie(): void {
+    // @ts-ignore
     this.restauraciaService.ziskajVsetkyObsahyRestauracii().subscribe({
-      next: (restauracie) => {
-        this.restauracie = restauracie;
+      next: (vsetkyRestauracie) => {
+        this.restauracie = vsetkyRestauracie.filter(restauracia =>
+          (this.mesto ? restauracia.cityName === this.mesto : true) &&
+          (this.typ ? restauracia.type === this.typ : true)
+        );
       },
       error: (error) => {
         console.error('Chyba pri získavaní reštaurácií', error);
-
       }
     });
   }
+
+  zmenaZoradeniaMesta(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement; // Typovanie na HTMLSelectElement
+    this.mesto = selectElement.value;
+    this.ziskajVsetkyRestauracie();
+  }
+
+  zmenaZoradeniaTypu(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement; // Typovanie na HTMLSelectElement
+    this.typ = selectElement.value;
+    this.ziskajVsetkyRestauracie();
+  }
+
+
+
 }
