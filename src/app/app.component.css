@@ -1,0 +1,45 @@
+.top-bar {
+  background-color: #9D0208;
+  color: #F8EDED;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 3px 10px;
+  font-size: 12px;
+}
+
+.top-bar span {
+  margin-right: 10px;
+}
+
+.divider {
+  height: 1px;
+  background-color: #F8EDED;
+}
+
+nav {
+  background-color: #9D0208;
+  color: #F8EDED;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+}
+
+nav h1 {
+  margin: 0;
+  font-family: Bradley Hand, cursive;
+  margin-right: auto;
+  font-size: 35px;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: #e3b6b6;
+}

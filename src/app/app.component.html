@@ -1,24 +1,20 @@
-<style>
-</style>
+<div class="top-bar">
+  <span>ℹ️ Donáška jedla</span>
+  <span>✉ kontakt&#64;quickeats.sk</span>
+  <span>☎ +421 000 000 000</span>
+</div>
 
-<h1>{{ title }}</h1>
+<div class="divider"></div>
 
+<nav>
+  <h1>{{ title }}</h1>
+  <a routerLink="/uvod">Úvod</a>
+  <a routerLink="/restauracie">Reštaurácie</a>
+  <a routerLink="/mesta">Mestá</a>
+  <a routerLink="/kontakt">Kontakt</a>
+  <a routerLink="/prihlasenie">Prihlásenie</a>
+  <a routerLink="/registracia">Registrácia</a>
+  <a routerLink="/restauracia-formular">Nová reštaurácia</a>
+</nav>
 
-<a routerLink="/uvod">Úvod</a>
-&nbsp;|&nbsp;
-<a routerLink="/restauracie">Reštaurácie</a>
-&nbsp;|&nbsp;
-<a routerLink="/mesta">Mestá</a>
-&nbsp;|&nbsp;
-<a routerLink="/kontakt">KONTAKT</a>
-&nbsp;|&nbsp;
-<a routerLink="/prihlasenie">PRIHLÁSENIE</a>
-&nbsp;|&nbsp;
-<a routerLink="/registracia">REGISTRÁCIA</a>
-&nbsp;|&nbsp;
-<a routerLink="/restauracia-formular">Nová reštaurácia</a>
-
-<br/>
-<br/>
-
-<router-outlet />
+<router-outlet/>
