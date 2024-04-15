@@ -10,6 +10,7 @@ import {Restauracia} from "../model/restauracia.model";
 import {RestauraciaService} from "../services/restauracia.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
+import {MatCard} from "@angular/material/card";
 
 @Component({
   selector: 'app-restauracia-formular',
@@ -22,7 +23,8 @@ import {Router} from "@angular/router";
     MatInputModule,
     MatIcon,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatCard
   ],
   templateUrl: './restauracia-formular.component.html',
   styleUrl: './restauracia-formular.component.css'

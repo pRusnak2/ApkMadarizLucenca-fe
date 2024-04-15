@@ -27,3 +27,13 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #B13539;
 }
+
+.logForm{
+  padding: 50px;
+  margin: 20px;
+}
+
+.loginFormular{
+  display: flex;
+  justify-content: center;
+}

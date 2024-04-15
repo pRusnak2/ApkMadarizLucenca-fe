@@ -1,49 +1,53 @@
-<form [formGroup]="formular" (ngSubmit)="onSubmit()" >
+<div class="registrationFormular">
+  <mat-card class="regForm">
+    <form [formGroup]="formular" (ngSubmit)="onSubmit()" >
+      <h1>Registrácia:</h1>
+      <mat-form-field>
+        <mat-label for="krstnemeno">Krstné meno:</mat-label>
+        <input matInput type="text" id="krstnemeno" name="krstnemeno" formControlName="firstName" required>
+      </mat-form-field><br>
 
-  <mat-form-field>
-    <mat-label for="meno">Krstné meno:</mat-label>
-    <input matInput type="text" id="krstnemeno" name="krstnemeno" formControlName="firstName" required>
-  </mat-form-field><br>
+      <mat-form-field>
+        <mat-label for="priezvisko">Priezvisko:</mat-label>
+        <input matInput type="text" id="priezvisko" name="priezvisko" formControlName="lastName" required>
+      </mat-form-field><br>
 
-  <mat-form-field>
-    <mat-label for="meno">Priezvisko:</mat-label>
-    <input matInput type="text" id="priezvisko" name="priezvisko" formControlName="lastName" required>
-  </mat-form-field><br>
+      <mat-form-field>
+        <mat-label for="meno">Používateľské meno:</mat-label>
+        <input matInput type="text" id="meno" name="meno" formControlName="username" required>
+      </mat-form-field><br>
 
-  <mat-form-field>
-    <mat-label for="meno">Používateľské meno:</mat-label>
-    <input matInput type="text" id="meno" name="meno" formControlName="username" required>
-  </mat-form-field><br>
+      <mat-form-field>
+        <mat-label for="tel_cislo">Telefónne číslo:</mat-label>
+        <input matInput type="tel" id="tel_cislo" name="tel_cislo" formControlName="telNumber" required>
+      </mat-form-field><br>
 
-  <mat-form-field>
-    <mat-label for="tel_cislo">Telefónne číslo:</mat-label>
-    <input matInput type="tel" id="tel_cislo" name="tel_cislo" formControlName="telNumber" required>
-  </mat-form-field><br>
+      <mat-form-field>
+        <mat-label for="email">E-mail:</mat-label>
+        <input matInput type="email" id="email" name="email" formControlName="email" required>
+      </mat-form-field><br>
 
-  <mat-form-field>
-    <mat-label for="email">E-mail:</mat-label>
-    <input matInput type="email" id="email" name="email" formControlName="email" required>
-  </mat-form-field><br>
+      <mat-form-field>
+        <mat-label for="heslo">Heslo:</mat-label>
+        <input matInput type="password" id="heslo" name="heslo" formControlName="password" required>
+      </mat-form-field><br>
 
-  <mat-form-field>
-    <mat-label for="heslo">Heslo:</mat-label>
-    <input matInput type="password" id="heslo" name="heslo" formControlName="password" required>
-  </mat-form-field><br>
+      <mat-form-field>
+        <mat-label for="mesto">Mesto:</mat-label>
+        <input matInput type="text" id="mesto" name="mesto" formControlName="cityName" required>
+      </mat-form-field><br>
 
-  <mat-form-field>
-    <mat-label for="mesto">Mesto:</mat-label>
-    <input matInput type="text" id="mesto" name="mesto" formControlName="cityName" required>
-  </mat-form-field><br>
+      <mat-form-field>
+        <mat-label for="ulica">Ulica:</mat-label>
+        <input matInput type="text" id="ulica" name="ulica" formControlName="streetName" required>
+      </mat-form-field><br>
 
-  <mat-form-field>
-    <mat-label for="ulica">Ulica:</mat-label>
-    <input matInput type="text" id="ulica" name="ulica" formControlName="streetName" required>
-  </mat-form-field><br>
+      <mat-form-field>
+        <mat-label for="psc">PSČ:</mat-label>
+        <input matInput type="text" id="psc" name="psc" formControlName="postCode" required>
+      </mat-form-field><br>
 
-  <mat-form-field>
-    <mat-label for="psc">PSČ:</mat-label>
-    <input matInput type="text" id="psc" name="psc" formControlName="postCode" required>
-  </mat-form-field><br>
-
-  <button mat-flat-button type="submit" [disabled]="!formular.valid" >Odoslať</button>
-</form>
+      <button mat-flat-button type="submit" [disabled]="!formular.valid" >Odoslať</button>
+    </form>
+  </mat-card>
+</div>

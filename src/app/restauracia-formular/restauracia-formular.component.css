@@ -7,3 +7,13 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #B13539;
 }
+
+.restForm{
+  padding: 50px;
+  margin: 20px;
+}
+
+.restaurantFormular{
+  display: flex;
+  justify-content: center;
+}

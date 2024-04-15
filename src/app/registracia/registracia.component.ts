@@ -11,6 +11,7 @@ import {Zakaznik} from "../model/zakaznik.model";
 import {Router} from "@angular/router";
 import {CommonModule} from "@angular/common";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatCard} from "@angular/material/card";
 
 
 @Component({
@@ -24,6 +25,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     MatInputModule,
     MatIcon,
     MatButtonModule,
+    MatCard,
   ],
   templateUrl: './registracia.component.html',
   styleUrl: './registracia.component.css'

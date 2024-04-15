@@ -6,17 +6,18 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatOptionModule} from "@angular/material/core";
 import {MatIcon} from "@angular/material/icon";
 import {MatButtonModule} from '@angular/material/button';
+import {MatCard} from "@angular/material/card";
 
 @Component({
   selector: 'app-kontakt',
   standalone: true,
-  imports: [    MatFormFieldModule,
+  imports: [MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
     ReactiveFormsModule,
     MatInputModule,
     MatIcon,
-    MatButtonModule],
+    MatButtonModule, MatCard],
   templateUrl: './kontakt.component.html',
   styleUrl: './kontakt.component.css'
 })

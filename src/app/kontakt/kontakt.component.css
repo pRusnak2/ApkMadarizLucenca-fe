@@ -21,3 +21,7 @@ button[type="submit"]:hover {
   background-color: #B13539;
 }
 
+.conForm {
+  padding: 50px;
+  margin: 20px;
+}

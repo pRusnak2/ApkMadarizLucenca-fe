@@ -1,4 +1,7 @@
+<div class="restaurantFormular">
+  <mat-card class="restForm">
 <form [formGroup]="formular" (ngSubmit)="onSubmit()" >
+  <h1>Nová reštaurácia:</h1>
   <mat-form-field>
     <mat-label for="nazov">Názov reštaurácie:</mat-label>
     <input matInput type="text" id="nazov" name="name" formControlName="name" required>
@@ -61,3 +64,5 @@
 
   <button mat-flat-button type="submit" [disabled]="!formular.valid" >Odoslať</button>
 </form>
+  </mat-card>
+</div>

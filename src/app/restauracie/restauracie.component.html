@@ -1,7 +1,5 @@
 <h1>Reštaurácie</h1>
-
-<hr>
-
+<mat-card class="filtBar">
 <div class="filters">
   <div class="byCity">
     <h2>Zoradiť podľa mesta:</h2>
@@ -26,8 +24,7 @@
       </select>
   </div>
 </div>
-
-<hr>
+</mat-card>
 
 <div class="restaurants" >
   <div *ngFor="let restauracia of restauracie" style="flex: 0 0 calc(50% - 10px); margin: 5px;">
