@@ -10,3 +10,14 @@
 .company-info {
   text-align: center;
 }
+
+button[type="submit"] {
+  background-color: #9D0208;
+  color: white;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #B13539;
+}
+
