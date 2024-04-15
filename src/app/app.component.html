@@ -12,9 +12,14 @@
   <a routerLink="/restauracie">Reštaurácie</a>
   <a routerLink="/mesta">Mestá</a>
   <a routerLink="/kontakt">Kontakt</a>
-  <a routerLink="/prihlasenie">Prihlásenie</a>
-  <a routerLink="/registracia">Registrácia</a>
-  <a routerLink="/restauracia-formular">Nová reštaurácia</a>
+  <div class="dropdown">
+    <button class="dropbtn">Prihlásenie</button>
+    <div class="dropdown-content">
+      <a routerLink="/prihlasenie">Prihlásiť sa</a>
+      <a routerLink="/registracia">Registrácia</a>
+      <a routerLink="/restauracia-formular">Nová reštaurácia</a>
+    </div>
+  </div>
 </nav>
 
 <router-outlet/>
