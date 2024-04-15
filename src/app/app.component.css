@@ -84,3 +84,10 @@ nav a:hover {
 .dropdown:hover .dropbtn {
   background-color: #7a0003;
 }
+
+nav .title {
+  margin: 0;
+  font-family: Bradley Hand, cursive;
+  margin-right: auto;
+  font-size: 35px;
+}
