@@ -23,14 +23,7 @@ nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 20px;
-}
-
-nav h1 {
-  margin: 0;
-  font-family: Bradley Hand, cursive;
-  margin-right: auto;
-  font-size: 35px;
+  padding: 5px;
 }
 
 nav a {
@@ -85,9 +78,9 @@ nav a:hover {
   background-color: #7a0003;
 }
 
-nav .title {
+nav .logo {
   margin: 0;
-  font-family: Bradley Hand, cursive;
   margin-right: auto;
-  font-size: 35px;
+  margin-left: 50px;
+  margin-top: 5px;
 }
