@@ -61,3 +61,11 @@ mat-card-title{
   margin: 20px;
   background-color: #F8EDED;
 }
+
+img{
+  padding: 22px;
+  border-radius: 15px;
+}
+
+.content{
+margin-left: 60px}

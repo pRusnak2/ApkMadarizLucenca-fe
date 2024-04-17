@@ -1,8 +1,8 @@
 <h1>Reštaurácie</h1>
 <mat-card class="filtBar">
-<div class="filters">
-  <div class="byCity">
-    <h2>Filtovať podľa mesta:</h2>
+  <div class="filters">
+    <div class="byCity">
+      <h2>Filtovať podľa mesta:</h2>
       <select id="sortByCity" (change)="zmenaZoradeniaMesta($event)">
         <option value="">Všetky</option>
         <option value="Martin">Martin</option>
@@ -10,10 +10,10 @@
         <option value="Bratislava">Bratislava</option>
         <option value="Košice">Košice</option>
       </select>
-  </div>
+    </div>
 
-  <div class="byType">
-    <h2>Filtovať podľa typu:</h2>
+    <div class="byType">
+      <h2>Filtovať podľa typu:</h2>
       <select id="sortByType" (change)="zmenaZoradeniaTypu($event)">
         <option value="">Všetky</option>
         <option value="fastfood">Fastfood</option>
@@ -22,27 +22,31 @@
         <option value="dezert">Dezert</option>
         <option value="iny">Iný</option>
       </select>
+    </div>
   </div>
-</div>
 </mat-card>
 
 <div class="restaurants" >
   <div *ngFor="let restauracia of restauracie" style="flex: 0 0 calc(50% - 10px); margin: 5px;">
     <mat-card class="restaurant-card">
-      <mat-card-header>
-        <mat-card-subtitle>Typ: {{ restauracia.type }}</mat-card-subtitle>
-        <mat-card-title>{{ restauracia.name }}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>☎ +421{{ restauracia.telNumber }}</p>
-        <p><strong> Mesto: </strong>{{ restauracia.cityName }}</p>
-        <p><strong>Ulica:</strong> {{ restauracia.streetName }}</p>
-        <p><strong>PSČ:</strong> {{ restauracia.postCode }}</p>
-        <mat-divider></mat-divider>
-      </mat-card-content>
-<!--      <mat-card-footer>-->
-<!--        <mat-progress-bar mode="buffer"></mat-progress-bar>-->
-<!--      </mat-card-footer>-->
+      <div style="display: flex; justify-content: flex-start; ">
+        <div>
+          <img [src]="'assets/img/' + getImage(restauracia.type)" alt="ilustration" width="200" height="157"/>
+        </div>
+        <div class="content">
+          <mat-card-header>
+            <mat-card-subtitle>Typ: {{ restauracia.type }}</mat-card-subtitle>
+            <mat-card-title>{{ restauracia.name }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>☎ +421{{ restauracia.telNumber }}</p>
+            <p><strong> Mesto: </strong>{{ restauracia.cityName }}</p>
+            <p><strong>Ulica:</strong> {{ restauracia.streetName }}</p>
+            <p><strong>PSČ:</strong> {{ restauracia.postCode }}</p>
+          </mat-card-content>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
     </mat-card>
   </div>
 </div>

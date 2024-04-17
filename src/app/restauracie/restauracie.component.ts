@@ -56,6 +56,20 @@ export class RestauracieComponent implements OnInit {
     this.ziskajVsetkyRestauracie();
   }
 
+  getImage(type: string): string {
+    switch(type) {
+      case 'fastfood':
+        return 'fastfood.jpg';
+      case 'dezert':
+        return 'desert.jpg';
+      case 'azijska':
+        return 'asian.jpg';
+      case 'vegetarian':
+        return 'vegetarian.jpg';
+      default:
+        return 'other.jpg';
+    }
+  }
 
 
 }
