@@ -54,7 +54,7 @@ export class RestauraciaFormularComponent {
         this.restauraciaService.vytvorRestauraciu(restauracia).subscribe({
           next: (id) => {
             console.log('restauracia vytvorena')
-            restauracia.id_restauracie = id;
+            restauracia.restaurantId = id;
             this.newRestauraciaEvent.emit(restauracia);
           },
           error: (e) => {

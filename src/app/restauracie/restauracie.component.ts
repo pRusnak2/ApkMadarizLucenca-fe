@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {RouterOutlet} from "@angular/router";
+import {RouterModule, RouterOutlet} from "@angular/router";
 import {Restauracia} from "../model/restauracia.model";
 import {RestauraciaService} from "../services/restauracia.service";
 import { CommonModule } from '@angular/common';
@@ -12,7 +12,7 @@ import {MatCardModule} from '@angular/material/card';
 @Component({
   selector: 'app-restauracie',
   standalone: true,
-  imports: [FormsModule, RouterOutlet, CommonModule, MatProgressBarModule, MatButtonModule, MatDividerModule, MatCardModule],
+  imports: [FormsModule, RouterOutlet, CommonModule, MatProgressBarModule, MatButtonModule, MatDividerModule, MatCardModule, RouterModule],
   templateUrl: './restauracie.component.html',
   styleUrl: './restauracie.component.css'
 })

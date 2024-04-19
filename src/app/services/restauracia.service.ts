@@ -20,4 +20,8 @@ export class RestauraciaService {
     return this.http.get<any[]>(apiUrl);
   }
 
+  getRestauraciaById(restaurantId: number): Observable<Restauracia> {
+    const url = `${this.apiUrlRestauracia}/${restaurantId}`;
+    return this.http.get<Restauracia>(url);
+  }
 }

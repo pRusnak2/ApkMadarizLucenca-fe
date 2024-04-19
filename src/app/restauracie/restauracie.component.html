@@ -1,3 +1,4 @@
+
 <h1>Reštaurácie</h1>
 <mat-card class="filtBar">
   <div class="filters">
@@ -28,7 +29,7 @@
 
 <div class="restaurants" >
   <div *ngFor="let restauracia of restauracie" style="flex: 0 0 calc(50% - 10px); margin: 5px;">
-    <mat-card class="restaurant-card">
+    <mat-card class="restaurant-card" [routerLink]="['/restauracia-detail', restauracia.restaurantId]">
       <div style="display: flex; justify-content: flex-start; ">
         <div>
           <img [src]="'assets/img/' + getImage(restauracia.type)" alt="ilustration" width="200" height="157"/>
