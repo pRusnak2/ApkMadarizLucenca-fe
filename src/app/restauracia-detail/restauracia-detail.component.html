@@ -23,19 +23,18 @@
 
 <h1>Ponuka:</h1>
 
-<div class="foods" >
+<div class="foods">
   <div *ngFor="let food of foods" style="flex: 0 0 calc(50% - 10px); margin: 5px;">
-    <mat-card class="food-card" >
-      <div style="display: flex; justify-content: flex-start; ">
-<!--        <div>-->
-<!--          <img [src]="'assets/img/' + getImage(restauracia.type)" alt="ilustration" width="200" height="157"/>-->
-<!--        </div>-->
+    <mat-card class="food-card">
+      <div style="display: flex; justify-content: flex-start;">
         <div class="content">
           <mat-card-header>
             <mat-card-title>{{ food.name }}</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-            <p><strong> Cena: </strong>{{ food.price }}€</p>
+            <p><strong>Cena:</strong> {{ food.price }}€</p>
+            <button mat-raised-button color="primary" (click)="addToCart(food)">Pridaj do košíka</button>
+            <button mat-raised-button color="warn" (click)="deleteFoodById(food.foodId)">Vymazať jedlo</button>
           </mat-card-content>
         </div>
       </div>
@@ -43,4 +42,5 @@
     </mat-card>
   </div>
 </div>
+
 

@@ -8,6 +8,7 @@ import {MatDivider} from "@angular/material/divider";
 import {NgForOf} from "@angular/common";
 import {Restauracia} from "../model/restauracia.model";
 import {RestauraciaService} from "../services/restauracia.service";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-restauracia-detail',
@@ -20,7 +21,8 @@ import {RestauraciaService} from "../services/restauracia.service";
     MatCardSubtitle,
     MatCardTitle,
     MatDivider,
-    NgForOf
+    NgForOf,
+    MatButton
   ],
   templateUrl: './restauracia-detail.component.html',
   styleUrl: './restauracia-detail.component.css'
@@ -60,5 +62,21 @@ export class RestauraciaDetailComponent implements OnInit {
         console.error('Chyba pri načítaní reštaurácie', error);
       }
     });
+  }
+
+  deleteFoodById(foodId: number): void {
+    this.foodService.deleteFoodById(foodId).subscribe(
+      () => {
+        console.log('Jedlo úspešne vymazané.');
+        this.loadFoods();
+      },
+        (error: any) => {
+        console.error('Chyba pri vymazávaní jedla:', error);
+      }
+    );
+  }
+
+  addToCart(food: Food) {
+
   }
 }

@@ -24,4 +24,11 @@ export class RestauraciaService {
     const url = `${this.apiUrlRestauracia}/${restaurantId}`;
     return this.http.get<Restauracia>(url);
   }
+
+  vymazRestauraciu(restaurantId: number | null): Observable<void> {
+    const url = `${this.apiUrlRestauracia}/vymazanie/${restaurantId}`;
+    return this.http.delete<void>(url);
+  }
+
+
 }

@@ -8,6 +8,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-restauracie',
@@ -55,6 +56,21 @@ export class RestauracieComponent implements OnInit {
     this.typ = selectElement.value;
     this.ziskajVsetkyRestauracie();
   }
+
+  vymazReatauraciu(restaurantId: number | null): void {
+    this.restauraciaService.vymazRestauraciu(restaurantId).subscribe(
+      () => {
+        console.log('Restaurácia úspešne vymazaná.');
+        this.ziskajVsetkyRestauracie();
+      },
+      error => {
+        console.error('Chyba pri vymazávaní reštaurácie:', error.error);
+      }
+    );
+  }
+
+
+
 
   getImage(type: string): string {
     switch(type) {
