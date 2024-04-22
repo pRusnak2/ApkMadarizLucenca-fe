@@ -4,25 +4,31 @@
   <div class="filters">
     <div class="byCity">
       <h2>Filtovať podľa mesta:</h2>
-      <select id="sortByCity" (change)="zmenaZoradeniaMesta($event)">
-        <option value="">Všetky</option>
-        <option value="Martin">Martin</option>
-        <option value="Banská Bystrica">Banská Bystrica</option>
-        <option value="Bratislava">Bratislava</option>
-        <option value="Košice">Košice</option>
-      </select>
+      <mat-form-field>
+        <mat-label>Vyberte mesto</mat-label>
+        <mat-select id="sortByCity" (selectionChange)="zmenaZoradeniaMesta($event)">
+          <mat-option value="">Všetky</mat-option>
+          <mat-option value="Martin">Martin</mat-option>
+          <mat-option value="Banská Bystrica">Banská Bystrica</mat-option>
+          <mat-option value="Bratislava">Bratislava</mat-option>
+          <mat-option value="Košice">Košice</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <div class="byType">
       <h2>Filtovať podľa typu:</h2>
-      <select id="sortByType" (change)="zmenaZoradeniaTypu($event)">
-        <option value="">Všetky</option>
-        <option value="fastfood">Fastfood</option>
-        <option value="vegetarian">Vegetariánska</option>
-        <option value="azijska">Ázijská</option>
-        <option value="dezert">Dezert</option>
-        <option value="iny">Iný</option>
-      </select>
+      <mat-form-field>
+        <mat-label>Vyberte typ</mat-label>
+        <mat-select id="sortByType" (selectionChange)="zmenaZoradeniaTypu($event)">
+          <mat-option value="">Všetky</mat-option>
+          <mat-option value="fastfood">Fastfood</mat-option>
+          <mat-option value="vegetarian">Vegetariánska</mat-option>
+          <mat-option value="azijska">Ázijská</mat-option>
+          <mat-option value="dezert">Dezert</mat-option>
+          <mat-option value="iny">Iný</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </div>
 </mat-card>

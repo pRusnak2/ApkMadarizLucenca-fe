@@ -9,11 +9,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatFormField} from "@angular/material/form-field";
+import {MatOption, MatSelect, MatSelectChange} from "@angular/material/select";
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-restauracie',
   standalone: true,
-  imports: [FormsModule, RouterOutlet, CommonModule, MatProgressBarModule, MatButtonModule, MatDividerModule, MatCardModule, RouterModule],
+  imports: [FormsModule, RouterOutlet, CommonModule, MatProgressBarModule,MatFormFieldModule, MatButtonModule, MatDividerModule, MatCardModule, RouterModule, MatFormField, MatSelect, MatOption],
   templateUrl: './restauracie.component.html',
   styleUrl: './restauracie.component.css'
 })
@@ -45,18 +48,15 @@ export class RestauracieComponent implements OnInit {
     });
   }
 
-  zmenaZoradeniaMesta(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement; // Typovanie na HTMLSelectElement
-    this.mesto = selectElement.value;
+  zmenaZoradeniaMesta(event: MatSelectChange): void {
+    this.mesto = event.value; // Získať hodnotu z MatSelectChange
     this.ziskajVsetkyRestauracie();
   }
 
-  zmenaZoradeniaTypu(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement; // Typovanie na HTMLSelectElement
-    this.typ = selectElement.value;
+  zmenaZoradeniaTypu(event: MatSelectChange): void {
+    this.typ = event.value; // Získať hodnotu z MatSelectChange
     this.ziskajVsetkyRestauracie();
   }
-
   vymazReatauraciu(restaurantId: number | null): void {
     this.restauraciaService.vymazRestauraciu(restaurantId).subscribe(
       () => {

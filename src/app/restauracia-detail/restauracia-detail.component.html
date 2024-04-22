@@ -21,6 +21,24 @@
 
 <mat-divider></mat-divider>
 
+
+
+<mat-card class="filtBar">
+  <div class="filters">
+    <div class="podlaCeny">
+      <h2>Filtovať podľa ceny:</h2>
+      <mat-form-field>
+        <mat-label>Vyberte možnosť</mat-label>
+        <mat-select [(value)]="selectedSortType" (selectionChange)="sortFoodsByPrice()">
+          <mat-option value="desc">Od najdrahšieho</mat-option>
+          <mat-option value="asc">Od najlacnejšieho</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-card>
+
+
 <h1>Ponuka:</h1>
 
 <div class="foods">

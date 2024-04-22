@@ -9,6 +9,10 @@ import {NgForOf} from "@angular/common";
 import {Restauracia} from "../model/restauracia.model";
 import {RestauraciaService} from "../services/restauracia.service";
 import {MatButton} from "@angular/material/button";
+import {MatFormField} from "@angular/material/form-field";
+import {MatOption, MatSelect} from "@angular/material/select";
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 @Component({
   selector: 'app-restauracia-detail',
@@ -16,13 +20,17 @@ import {MatButton} from "@angular/material/button";
   imports: [
     FormsModule,
     MatCard,
+    MatFormFieldModule,
     MatCardContent,
     MatCardHeader,
     MatCardSubtitle,
     MatCardTitle,
     MatDivider,
     NgForOf,
-    MatButton
+    MatButton,
+    MatFormField,
+    MatSelect,
+    MatOption
   ],
   templateUrl: './restauracia-detail.component.html',
   styleUrl: './restauracia-detail.component.css'
@@ -75,6 +83,22 @@ export class RestauraciaDetailComponent implements OnInit {
       }
     );
   }
+
+
+  selectedSortType: string = 'desc';
+
+  sortFoodsByPrice() {
+    const sortType = this.selectedSortType;
+
+    if (sortType === 'asc') {
+      this.foods.sort((a, b) => a.price - b.price);
+    } else if (sortType === 'desc') {
+      this.foods.sort((a, b) => b.price - a.price);
+    }
+  }
+
+
+
 
   addToCart(food: Food) {
 
