@@ -59,7 +59,7 @@ export class RestauraciaFormularComponent {
           },
           error: (e) => {
             console.error('chyba vytvarania restauracie!')
-            this.router.navigate(['/registracia']);
+            this.router.navigate(['/restauracia-formular']);
             this.snackBar.open('Registrácia nebola úspešná, skúste to znova', 'Zavrieť', {
               duration: 20000
             });

@@ -1,0 +1,19 @@
+button[type="submit"] {
+  background-color: #9D0208;
+  color: white;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #B13539;
+}
+
+.foodForm{
+  padding: 50px;
+  margin: 20px;
+}
+
+.foodFormular{
+  display: flex;
+  justify-content: center;
+}

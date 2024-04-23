@@ -72,7 +72,7 @@ export class RestauraciaDetailComponent implements OnInit {
     });
   }
 
-  deleteFoodById(foodId: number): void {
+  deleteFoodById(foodId: number | null): void {
     this.foodService.deleteFoodById(foodId).subscribe(
       () => {
         console.log('Jedlo úspešne vymazané.');

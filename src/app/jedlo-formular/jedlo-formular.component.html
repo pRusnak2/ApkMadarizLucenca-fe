@@ -1,0 +1,34 @@
+<div class="foodFormular">
+
+  <mat-card class="foodForm">
+    <form [formGroup]="formular" (ngSubmit)="onSubmit()" >
+      <h1>Nové jedlo:</h1>
+      <mat-form-field>
+        <mat-label for="nazov">Názov jedla:</mat-label>
+        <input matInput type="text" id="name" name="name" formControlName="name" required>
+      </mat-form-field><br>
+
+      <mat-form-field>
+        <mat-label for="description">Popis jedla:</mat-label>
+        <input matInput type="text" id="description" name="description" formControlName="description" required>
+      </mat-form-field><br>
+
+<!--      Dorobiť výber alergénov-->
+
+      <mat-form-field>
+        <mat-label for="price">Cena:</mat-label>
+        <input matInput type="text" id="price" name="price" formControlName="price" required>
+      </mat-form-field><br>
+
+      <!--      Dočasne kým nemáme rolu reštaurácie-->
+      <mat-form-field>
+        <mat-label for="restaurantId">ID reštaurácie:</mat-label>
+        <input matInput type="text" id="restaurantId" name="restaurantId" formControlName="restaurantId" required>
+      </mat-form-field><br>
+
+
+      <button mat-flat-button type="submit" [disabled]="!formular.valid" >Odoslať</button>
+    </form>
+  </mat-card>
+
+</div>
