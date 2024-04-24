@@ -34,7 +34,6 @@ mat-card-title{
 }
 
 h1{
-
   font-weight: bold;
   color: #7a0003;
 }
@@ -59,4 +58,10 @@ h1{
 img{
   padding: 25px;
   border-radius: 15px;
+}
+
+.ponuka{
+  margin: 30px;
+  font-weight: bold;
+  color: #7a0003;
 }

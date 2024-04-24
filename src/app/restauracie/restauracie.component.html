@@ -50,8 +50,9 @@
             <p><strong> Mesto: </strong>{{ restauracia.cityName }}</p>
             <p><strong>Ulica:</strong> {{ restauracia.streetName }}</p>
             <p><strong>PSČ:</strong> {{ restauracia.postCode }}</p>
-            <button mat-raised-button color="primary" [routerLink]="['/restauracia-detail', restauracia.restaurantId]">Ponuka jedal</button>
-            <button mat-raised-button color="warn" (click)="vymazReatauraciu(restauracia.restaurantId)">Vymazat Reštauraciu</button>
+            <button mat-raised-button color="primary" [routerLink]="['/restauracia-detail', restauracia.restaurantId]">Ponuka jedál</button>
+            &nbsp;
+            <button mat-raised-button color="warn" (click)="vymazReatauraciu(restauracia.restaurantId)">Vymazať Reštauráciu</button>
           </mat-card-content>
         </div>
       </div>

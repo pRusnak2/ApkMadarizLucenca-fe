@@ -13,7 +13,14 @@
         <input matInput type="text" id="description" name="description" formControlName="description" required>
       </mat-form-field><br>
 
-<!--      Dorobiť výber alergénov-->
+      <mat-form-field>
+        <mat-label>Alergény:</mat-label>
+        <mat-select formControlName="allergens" multiple>
+          <mat-option *ngFor="let allergen of allergens" [value]="allergen.value">
+            {{ allergen.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br>
 
       <mat-form-field>
         <mat-label for="price">Cena:</mat-label>

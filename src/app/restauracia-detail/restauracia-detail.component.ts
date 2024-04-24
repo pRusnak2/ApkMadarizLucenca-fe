@@ -61,7 +61,6 @@ export class RestauraciaDetailComponent implements OnInit {
     this.foodService.foodByRestaurantId(this.restaurantId).subscribe({
       next: (foods) => {
         this.foods = foods;
-        console.log(foods);
       },
       error: (error) => {
         console.error('Chyba pri načítaní jedál', error);

@@ -42,7 +42,7 @@
 </mat-card>
 
 
-<h1>Ponuka:</h1>
+<h1 class="ponuka">Ponuka:</h1>
 
 <div class="foods">
   <div *ngFor="let food of foods" style="flex: 0 0 calc(50% - 10px); margin: 5px;">
@@ -56,7 +56,8 @@
             <p> {{ food.description }}</p>
             <mat-card-subtitle>Alergény: {{ food.allergens }}</mat-card-subtitle>
             <p><strong>Cena:</strong> {{ food.price }}€</p>
-            <button mat-raised-button color="primary" (click)="addToCart(food)">Pridaj do košíka</button>
+            <button mat-raised-button color="primary" (click)="addToCart(food)">Pridať do košíka</button>
+            &nbsp;
             <button mat-raised-button color="warn" (click)="deleteFoodById(food.foodId)">Vymazať jedlo</button>
           </mat-card-content>
         </div>
