@@ -4,6 +4,9 @@
   <div style="flex: 0 0 calc(50% - 10px); margin: 5px; ">
     <mat-card class="food-card" >
       <div style="display: flex; justify-content: center; ">
+        <div>
+          <img [src]="'assets/img/' + getImage(restauracia?.type)" alt="ilustration" width="200" height="157"/>
+        </div>
         <div class="content">
           <h1 class="nazov">{{ restauracia?.name }}</h1>
           <mat-card-content>
@@ -50,8 +53,9 @@
             <mat-card-title>{{ food.name }}</mat-card-title>
           </mat-card-header>
           <mat-card-content>
+            <p> {{ food.description }}</p>
+            <mat-card-subtitle>Alergény: {{ food.allergens }}</mat-card-subtitle>
             <p><strong>Cena:</strong> {{ food.price }}€</p>
-            <p><strong>Popis:</strong> {{ food.description }}</p>
             <button mat-raised-button color="primary" (click)="addToCart(food)">Pridaj do košíka</button>
             <button mat-raised-button color="warn" (click)="deleteFoodById(food.foodId)">Vymazať jedlo</button>
           </mat-card-content>

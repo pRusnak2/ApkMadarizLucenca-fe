@@ -34,8 +34,29 @@ mat-card-title{
 }
 
 h1{
-  margin: 30px;
 
   font-weight: bold;
   color: #7a0003;
+}
+
+.filtBar{
+  padding: 10px;
+  margin: 20px;
+  background-color: #F8EDED;
+}
+
+.filters{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filters h2 {
+  color: #9D0208;
+  font-weight: bold;
+}
+
+img{
+  padding: 25px;
+  border-radius: 15px;
 }

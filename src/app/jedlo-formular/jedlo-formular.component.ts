@@ -56,7 +56,7 @@ export class JedloFormularComponent {
         },
         complete: () => {
           console.log('hotovo')
-          this.router.navigate(['/restauracia']);
+          this.router.navigate(['/restauracie']);
           this.snackBar.open('Jedlo bolo pridané!', 'Zavrieť', {
             duration: 15000
           });

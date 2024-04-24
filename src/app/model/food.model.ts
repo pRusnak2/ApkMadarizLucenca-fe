@@ -4,12 +4,15 @@ export class Food {
   description: string;
   price: number;
   restaurantId: number | null;
+  allergens: { allergenId: number, name: string }[];
 
-  constructor(foodId: number | null, name: string, description: string, price: number, restaurantId: number | null) {
+
+  constructor(foodId: number | null, name: string, description: string, price: number, restaurantId: number | null, allergens: { allergenId: number, name: string }[] = []) {
     this.foodId = foodId;
-    this.description = description;
     this.name = name;
+    this.description = description;
     this.price = price;
     this.restaurantId = restaurantId;
+    this.allergens = allergens;
   }
 }

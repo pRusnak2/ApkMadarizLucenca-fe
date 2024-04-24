@@ -12,6 +12,8 @@ import {MatButton} from "@angular/material/button";
 import {MatFormField} from "@angular/material/form-field";
 import {MatOption, MatSelect} from "@angular/material/select";
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatList, MatListItem} from "@angular/material/list";
+import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 
 
 @Component({
@@ -30,7 +32,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatButton,
     MatFormField,
     MatSelect,
-    MatOption
+    MatOption,
+    MatList,
+    MatListItem,
+    MatMenuItem,
+    MatMenu,
+    MatMenuTrigger
   ],
   templateUrl: './restauracia-detail.component.html',
   styleUrl: './restauracia-detail.component.css'
@@ -54,6 +61,7 @@ export class RestauraciaDetailComponent implements OnInit {
     this.foodService.foodByRestaurantId(this.restaurantId).subscribe({
       next: (foods) => {
         this.foods = foods;
+        console.log(foods);
       },
       error: (error) => {
         console.error('Chyba pri načítaní jedál', error);
@@ -97,6 +105,20 @@ export class RestauraciaDetailComponent implements OnInit {
     }
   }
 
+  getImage(type: string | undefined): string {
+    switch(type) {
+      case 'fastfood':
+        return 'fastfood.jpg';
+      case 'dezert':
+        return 'desert.jpg';
+      case 'azijska':
+        return 'asian.jpg';
+      case 'vegetarian':
+        return 'vegetarian.jpg';
+      default:
+        return 'other.jpg';
+    }
+  }
 
 
 
