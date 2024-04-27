@@ -24,7 +24,7 @@ export class PrihlasenieComponent {
       if (this.form.controls.username.value && this.form.controls.password.value) {
         this.authService.login(this.form.controls.username.value, this.form.controls.password.value).subscribe({
           next: () => {
-            this.router.navigate(['/page-demo']);
+            this.router.navigate(['/']);
             console.log("prihlasany");
           },
           error: (e) => {
