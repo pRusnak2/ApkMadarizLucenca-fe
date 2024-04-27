@@ -1,3 +1,8 @@
+export interface UserRolesDto{
+  username: string;
+  roles: string[];
+}
+
 export class Zakaznik {
   customerId: number|null;
   username: string;
