@@ -8,6 +8,12 @@ import {RestauraciaDetailComponent} from "./restauracia-detail/restauracia-detai
 import {ObjednavkyComponent} from "./objednavky/objednavky.component";
 import {UvodComponent} from "./uvod/uvod.component";
 import {JedloFormularComponent} from "./jedlo-formular/jedlo-formular.component";
+import {CastoKladeneOtazkyComponent} from "./footer content/casto-kladene-otazky/casto-kladene-otazky.component";
+import {ONasComponent} from "./footer content/o-nas/o-nas.component";
+import {BlogComponent} from "./footer content/social-media/blog/blog.component";
+import {FacebookComponent} from "./footer content/social-media/facebook/facebook.component";
+import {InstagramComponent} from "./footer content/social-media/instagram/instagram.component";
+import {XComponent} from "./footer content/social-media/x/x.component";
 
 export const routes: Routes = [
   { path: 'restauracie', component: RestauracieComponent },
@@ -18,5 +24,11 @@ export const routes: Routes = [
   { path: 'restauracia-detail/:restaurantId', component: RestauraciaDetailComponent },
   { path: '', component: UvodComponent },
   {path: 'objednavky', component: ObjednavkyComponent},
-  {path: 'jedlo-formular', component: JedloFormularComponent}
+  {path: 'jedlo-formular', component: JedloFormularComponent},
+  {path: 'casto-kladene-otazky', component: CastoKladeneOtazkyComponent},
+  {path: 'o-nas', component: ONasComponent},
+  {path: 'blog', component: BlogComponent},
+  {path: 'facebook', component: FacebookComponent},
+  {path: 'instagram', component: InstagramComponent},
+  {path: 'x', component: XComponent}
 ];

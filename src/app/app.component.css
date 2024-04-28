@@ -85,3 +85,50 @@ nav .logo {
   margin-left: 30px;
   margin-top: 5px;
 }
+
+/* Footer Styling */
+footer {
+  background-color: #B40000;
+  color: #FFFFFF;
+  padding: 20px; /* Adjust padding as needed */
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between; /* Adjust alignment as needed */
+  padding: 20px; /* Adjust padding as needed */
+  background-color: #B40000;
+  color: #FFFFFF;
+}
+
+.nav-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-section label {
+  color: #F8EDED;
+  font-size: 16px;
+  margin-bottom: 10px; /* Adjust spacing between label and list */
+}
+
+.nav-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-section li {
+  margin-bottom: 5px; /* Adjust spacing between list items */
+}
+
+.nav-section a {
+  text-decoration: none;
+  color: #F8EDED;
+  font-size: 14px;
+}
+
+.nav-section a:hover {
+  color: #e3b6b6;
+}
+
