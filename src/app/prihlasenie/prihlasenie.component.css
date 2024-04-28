@@ -19,13 +19,13 @@ input[type="submit"] {
 }
 
 input[type="submit"] {
-  background-color: #9D0208;
+  background-color: #B40000;
   color: white;
   cursor: pointer;
 }
 
 input[type="submit"]:hover {
-  background-color: #B13539;
+  background-color: #B40000;
 }
 
 .logForm{

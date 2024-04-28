@@ -1,11 +1,11 @@
 button[type="submit"] {
-  background-color: #9D0208;
+  background-color: #B40000;
   color: white;
   cursor: pointer;
 }
 
 button[type="submit"]:hover {
-  background-color: #B13539;
+  background-color: #B40000;
 }
 
 .restForm{

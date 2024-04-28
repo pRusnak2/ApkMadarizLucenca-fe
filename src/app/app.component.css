@@ -1,5 +1,5 @@
 .top-bar {
-  background-color: #9D0208;
+  background-color: #B40000;
   color: #F8EDED;
   display: flex;
   justify-content: flex-end;
@@ -18,8 +18,8 @@
 }
 
 nav {
-  background-color: #9D0208;
-  color: #F8EDED;
+  background-color: #B40000;
+  color: #FFFFFF;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -45,7 +45,7 @@ nav a:hover {
 }
 
 .dropbtn {
-  background-color: #9D0208;
+  background-color: #B40000;
   color: #F8EDED;
   font-size: 16px;
   border: none;
@@ -76,7 +76,7 @@ nav a:hover {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #7a0003;
+  background-color: #B40000;
 }
 
 nav .logo {

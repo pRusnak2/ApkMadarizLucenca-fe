@@ -4,7 +4,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
   font-weight: 600;
-  color: #7a0003;
+  color: #B40000;
 }
 
 .food-card {
@@ -14,7 +14,7 @@
 }
 
 mat-card-title{
-  color: #9D0208;
+  color: #B40000;
   font-weight: bold;
 }
 
@@ -35,7 +35,7 @@ mat-card-title{
 
 h1{
   font-weight: bold;
-  color: #7a0003;
+  color: #B40000;
 }
 
 .filtBar{
@@ -51,7 +51,7 @@ h1{
 }
 
 .filters h2 {
-  color: #9D0208;
+  color: #B40000;
   font-weight: bold;
 }
 
@@ -63,5 +63,5 @@ img{
 .ponuka{
   margin: 30px;
   font-weight: bold;
-  color: #7a0003;
+  color: #B40000;
 }
