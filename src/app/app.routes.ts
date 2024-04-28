@@ -8,6 +8,7 @@ import {RestauraciaDetailComponent} from "./restauracia-detail/restauracia-detai
 import {ObjednavkyComponent} from "./objednavky/objednavky.component";
 import {UvodComponent} from "./uvod/uvod.component";
 import {JedloFormularComponent} from "./jedlo-formular/jedlo-formular.component";
+import {KosikComponent} from "./kosik/kosik.component";
 import {CastoKladeneOtazkyComponent} from "./footer content/casto-kladene-otazky/casto-kladene-otazky.component";
 import {ONasComponent} from "./footer content/o-nas/o-nas.component";
 import {BlogComponent} from "./footer content/social-media/blog/blog.component";
@@ -24,6 +25,8 @@ export const routes: Routes = [
   { path: 'restauracia-detail/:restaurantId', component: RestauraciaDetailComponent },
   { path: '', component: UvodComponent },
   {path: 'objednavky', component: ObjednavkyComponent},
+  {path: 'kosik', component: KosikComponent},
+  {path: 'jedlo-formular', component: JedloFormularComponent}
   {path: 'jedlo-formular', component: JedloFormularComponent},
   {path: 'casto-kladene-otazky', component: CastoKladeneOtazkyComponent},
   {path: 'o-nas', component: ONasComponent},

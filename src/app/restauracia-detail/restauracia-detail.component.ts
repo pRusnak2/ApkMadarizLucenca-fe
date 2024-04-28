@@ -14,6 +14,8 @@ import {MatOption, MatSelect} from "@angular/material/select";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatList, MatListItem} from "@angular/material/list";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
+import { KosikService } from '../services/kosik.service';
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -47,7 +49,7 @@ export class RestauraciaDetailComponent implements OnInit {
   foods: Food[] = [];
   restaurantId: number =0;
 
-  constructor(private route: ActivatedRoute, private foodService: FoodService, private restauraciaService: RestauraciaService) {}
+  constructor(private route: ActivatedRoute, private foodService: FoodService, private restauraciaService: RestauraciaService, private kosikService: KosikService, private snackBar: MatSnackBar ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -120,8 +122,10 @@ export class RestauraciaDetailComponent implements OnInit {
   }
 
 
-
-  addToCart(food: Food) {
-
+  addToCart(food: Food): void {
+    this.kosikService.addToKosik(food);
+    this.snackBar.open(`${food.name} bolo pridané do košíka.`, 'Zavrieť', {
+      duration: 3000
+    });
   }
 }
