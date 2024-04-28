@@ -8,6 +8,7 @@ import {RestauraciaDetailComponent} from "./restauracia-detail/restauracia-detai
 import {ObjednavkyComponent} from "./objednavky/objednavky.component";
 import {UvodComponent} from "./uvod/uvod.component";
 import {JedloFormularComponent} from "./jedlo-formular/jedlo-formular.component";
+import {KosikComponent} from "./kosik/kosik.component";
 
 export const routes: Routes = [
   { path: 'restauracie', component: RestauracieComponent },
@@ -18,5 +19,6 @@ export const routes: Routes = [
   { path: 'restauracia-detail/:restaurantId', component: RestauraciaDetailComponent },
   { path: '', component: UvodComponent },
   {path: 'objednavky', component: ObjednavkyComponent},
+  {path: 'kosik', component: KosikComponent},
   {path: 'jedlo-formular', component: JedloFormularComponent}
 ];
