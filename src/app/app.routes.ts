@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import {RestauracieComponent} from "./restauracie/restauracie.component";
-import {KontaktComponent} from "./kontakt/kontakt.component";
+import {KontaktComponent} from "./footer content/kontakt/kontakt.component";
 import {PrihlasenieComponent} from "./prihlasenie/prihlasenie.component";
 import {RegistraciaComponent} from "./registracia/registracia.component";
 import {RestauraciaFormularComponent} from "./restauracia-formular/restauracia-formular.component";

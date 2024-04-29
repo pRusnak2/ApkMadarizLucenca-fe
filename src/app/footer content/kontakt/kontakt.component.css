@@ -1,0 +1,91 @@
+/* Overall Section Styling */
+.contact-us-section {
+  background-color: #F5F5F5;
+  padding: 40px 0;
+}
+
+.contact-us-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Information Styling */
+.contact-info {
+  margin-bottom: 20px;
+  text-align: center; /* Center align contact information */
+}
+
+.contact-info h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li {
+  margin-bottom: 10px;
+}
+
+.contact-info li i {
+  margin-right: 10px;
+  color: #333;
+}
+
+.contact-info a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Contact Form Styling */
+.contact-form {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%; /* Span full width of section */
+  margin-bottom: 20px; /* Maintain some margin below the form */
+}
+
+.contact-form mat-card.conForm {
+  padding: 50px; /* Padding applied to the inner card element */
+}
+
+.contact-form button[type="submit"] {
+  background-color: #B40000;
+  color: white;
+  cursor: pointer;
+}
+
+.contact-form button[type="submit"]:hover {
+  background-color: #B40000;
+}
+
+/* Remove Conflicting Styles (if applicable) */
+.contact-form {
+  margin-bottom: 0; /* Remove any unnecessary margin from contact form */
+}
+
+/* Company Information Styling (Optional) */
+.company-info {
+  text-align: center;
+}
+/* ... other styles ... */
+
+.contact-form mat-checkbox {
+  display: block; /* Make the checkbox block-level */
+  margin-bottom: 10px; /* Add some margin below the checkbox */
+}
+
+.contact-form mat-checkbox label {
+  display: inline-block; /* Allow text to wrap around checkbox */
+  margin-right: 10px; /* Add some space between label and checkbox */
+  font-size: 14px; /* Adjust font size as needed */
+}

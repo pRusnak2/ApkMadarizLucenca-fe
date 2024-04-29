@@ -7,6 +7,8 @@ import {MatOptionModule} from "@angular/material/core";
 import {MatIcon} from "@angular/material/icon";
 import {MatButtonModule} from '@angular/material/button';
 import {MatCard} from "@angular/material/card";
+import { MatCheckboxModule} from '@angular/material/checkbox';
+
 
 @Component({
   selector: 'app-kontakt',
@@ -17,7 +19,9 @@ import {MatCard} from "@angular/material/card";
     ReactiveFormsModule,
     MatInputModule,
     MatIcon,
-    MatButtonModule, MatCard],
+    MatButtonModule,
+    MatCard,
+    MatCheckboxModule],
   templateUrl: './kontakt.component.html',
   styleUrl: './kontakt.component.css'
 })

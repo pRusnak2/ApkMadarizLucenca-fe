@@ -1,0 +1,49 @@
+<section class="contact-us-section">
+  <div class="contact-us-container">
+    <div class="contact-info">
+      <h3>Naše kontaktné údaje</h3>
+      <ul>
+        <li>
+          <i class="fas fa-phone"></i>
+          <a href="tel:+421123456789">Telefónne číslo: +421 123 456 789</a>
+        </li>
+        <li>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:info@quickeats.sk">Email: info&#64;quickeats.sk</a>
+        </li>
+        <li>
+          <i class="fas fa-map-marker-alt"></i>
+          <address>Hlavná ulica 123, 811 01 Bratislava</address>
+        </li>
+      </ul>
+    </div>
+
+    <div class="contact-form">
+      <mat-card class="conForm">
+        <h1>Kontaktný formulár</h1>
+        <form [formGroup]="formular">
+          <mat-form-field>
+            <mat-label for="meno">Meno:</mat-label>
+            <input matInput type="text" id="meno" name="meno" required>
+          </mat-form-field><br>
+
+          <mat-form-field>
+            <mat-label>E-mail:</mat-label>
+            <input matInput type="email" id="email" name="email" required>
+          </mat-form-field><br>
+
+          <mat-form-field>
+            <mat-label>Pripomienky:</mat-label>
+            <textarea matInput id="pripomienky" name="pripomienky" rows="5" required></textarea>
+          </mat-form-field><br>
+
+          <mat-checkbox [formControlName]="'suhlas'" id="suhlas">
+            <label for="suhlas">Súhlasím s <a href="https://google.com" target="_blank">podmienkami</a> </label>
+          </mat-checkbox><br>
+
+          <button mat-flat-button type="submit">Odoslať</button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</section>

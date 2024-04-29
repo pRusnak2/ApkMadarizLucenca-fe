@@ -1,0 +1,124 @@
+.about-us-section {
+  background-color: #F5F5F5;
+  padding: 40px 0;
+  font-family: Arial, sans-serif; /* Choose a font you like */
+}
+
+.about-us-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px; /* Add a subtle border radius */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.about-us-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-us-header h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+}
+
+.about-us-header p {
+  font-size: 18px;
+  color: #777;
+}
+
+.about-us-content {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  padding: 20px;
+}
+
+.about-us-intro {
+  margin-bottom: 20px;
+}
+
+.about-us-benefits {
+  margin-bottom: 20px;
+}
+
+.about-us-benefits h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.about-us-benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-us-benefits li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.benefit-icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #ddd;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  color: #fff;
+}
+
+
+.about-us-mission {
+  margin-bottom: 20px;
+}
+
+.about-us-mission h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.about-us-team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.team-member {
+  width: 200px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.team-member h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.about-us-benefits li .benefit-icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  text-align: center;
+  background-color: #B40000; /* Red for all benefits */
+}
+

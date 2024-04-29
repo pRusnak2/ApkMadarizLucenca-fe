@@ -95,7 +95,7 @@ footer {
 
 .footer {
   display: flex;
-  justify-content: space-between; /* Adjust alignment as needed */
+  /* justify-content: inherit; /* Adjust alignment as needed */
   padding: 20px; /* Adjust padding as needed */
   background-color: #B40000;
   color: #FFFFFF;
@@ -104,9 +104,10 @@ footer {
 .nav-section {
   display: flex;
   flex-direction: column;
+  padding-left: 10%;
 }
 
-.nav-section label {
+.nav-section  label {
   color: #F8EDED;
   font-size: 16px;
   margin-bottom: 10px; /* Adjust spacing between label and list */
@@ -120,6 +121,8 @@ footer {
 
 .nav-section li {
   margin-bottom: 5px; /* Adjust spacing between list items */
+  font-size: 14px;
+
 }
 
 .nav-section a {
