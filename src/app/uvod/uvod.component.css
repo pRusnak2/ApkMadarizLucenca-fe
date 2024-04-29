@@ -17,6 +17,27 @@ h2 {
   margin-bottom: 10px;
 }
 
+
+.homepage_form h2{
+  text-align: center;
+  font-size: 30px;
+}
+
+
+/* Join Section Images (Adjustments based on your preference) */
+.homepage_images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.homepage_images img {
+  margin: 0 10px;
+  max-width: 300px;
+}
+
+/* Other Existing Styles */
 form {
   margin: 0 auto;
   max-width: 400px;
@@ -25,6 +46,7 @@ form {
   background-color: #fff;
   text-align: center;
 }
+
 
 label {
   display: block;
@@ -48,7 +70,7 @@ button {
 }
 
 button:hover {
-  background-color: #B40000;
+  background-color: #a00000; /* Slightly darker red on hover */
 }
 
 p {
@@ -76,3 +98,4 @@ footer ul li a {
   color: #fff;
   text-decoration: none;
 }
+

@@ -1,4 +1,4 @@
-<section>
+<section class="homepage_form">
   <h2>Objavte miesto, kde sa stretáva chuť s pohodlím</h2>
   <form>
     <label for="city">Vyberte mesto:</label>
@@ -6,12 +6,10 @@
       <option value="bratislava">Bratislava</option>
       <option value="kosice">Košice</option>
       <option value="presov">Prešov</option>
-      <!-- Pokračujte s ďalšími možnosťami -->
     </select>
     <button type="submit">Hľadať</button>
   </form>
-  <!-- Prepnutie na stránku s reštauráciami z toho okolia -->
-  <a href="/restauracie">Zobraziť reštaurácie v okolí</a>
+  <a href="/restauracie" class="btn">Zobraziť reštaurácie v okolí</a>
 </section>
 
 <section>
@@ -22,12 +20,18 @@
 <section>
   <h2>Objednávky cez stránku alebo mobilom</h2>
   <p>QuickEats vám umožňuje jednoducho a pohodlne objednávať jedlo cez našu webovú stránku alebo mobilnú aplikáciu.</p>
-  <!-- Vložte obrázok -->
-  <p>Ďalej tu môžete zobraziť ďalšie možnosti alebo informácie o objednávaní.</p>
 </section>
 
 <section>
   <h2>Stať sa členom / Stať sa členskou reštauráciou</h2>
   <p>Chcete sa stať súčasťou QuickEats? Stačí sa zaregistrovať!</p>
-  <!-- Vložte obrázky s preklikom na stránky registrácie -->
+  <div class="homepage_images">
+    <a routerLink="/registracia" class="btn">
+      <img src="/assets/img/uvod_2.png" alt="Stať sa členom">
+    </a>
+    <a routerLink="/restauracia-formular" class="btn">
+      <img src="/assets/img/uvod_1.png" alt="Stať sa členskou reštauráciou">
+    </a>
+    <img src="/assets/img/uvod_3.png" alt="Ďalšie informácie">
+  </div>
 </section>
