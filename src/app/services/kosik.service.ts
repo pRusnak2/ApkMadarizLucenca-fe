@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Food } from '../model/food.model';
-import { Order } from '../model/order.model';
+import { AuthService } from "../services/auth.service";
+import {Order} from "../model/order.model";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class KosikService {
   private kosik: Food[] = [];
   private apiUrlOrder: string = 'http://localhost:8080/order';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,  private authService: AuthService) {}
 
   addToKosik(food: Food): void {
     this.kosik.push(food);
@@ -32,17 +33,8 @@ export class KosikService {
     this.kosik = [];
   }
 
-  odoslatObjednavku(token: string): Observable<any> {
-    const objednavka: Order = {
-      orderTime: new Date(),
-      deliveryTime: new Date(new Date().getTime() + 60 * 60 * 1000),
-      status: 'Nová'
-    };
-
-    return this.http.post<any>(this.apiUrlOrder, objednavka, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+  createOrder(order: Order): Observable<Order> {
+    return this.http.post<Order>(this.apiUrlOrder, order);
   }
+
 }

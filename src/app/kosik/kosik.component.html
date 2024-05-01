@@ -9,7 +9,7 @@
             <mat-card-title>{{ food.name }}</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-            <p> {{ food.description }}</p>
+            <p>{{ food.description }}</p>
             <mat-card-subtitle>Alergény: {{ food.allergens }}</mat-card-subtitle>
             <p><strong>Cena:</strong> {{ food.price }}€</p>
           </mat-card-content>
@@ -19,8 +19,18 @@
       <button mat-raised-button color="warn" (click)="odstranitJedlo(food)">✖️Odstrániť</button>
     </mat-card>
   </div>
-
-  <button mat-raised-button color="primary" (click)="objednat()">Objednať</button>
-
+    <div  *ngIf="kosik.length === 0">
+      <mat-card class="food-card">
+        <div style="display: flex; justify-content: flex-start;">
+          <div>
+            <mat-card-header class="empty">
+              <mat-card-title>  <p>Košík je prázdny! <br> Prosím vyberte si z ponuky jedál!</p>
+              </mat-card-title>
+            </mat-card-header>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-card>
+    </div>
+  <button class="button" mat-raised-button color="primary" (click)="objednat()" *ngIf="kosik.length > 0">Objednať</button>
 </div>
-

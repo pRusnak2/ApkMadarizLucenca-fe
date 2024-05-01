@@ -29,3 +29,15 @@ h1{
   font-weight: bold;
   color: #7a0003;
 }
+
+.empty {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+.button{
+ margin-bottom: 20px;
+}

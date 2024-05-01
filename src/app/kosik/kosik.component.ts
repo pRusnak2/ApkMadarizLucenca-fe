@@ -1,17 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {KosikService} from "../services/kosik.service";
-import {Food} from "../model/food.model";
-import {NgForOf} from "@angular/common";
-import {MatButton} from "@angular/material/button";
-import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
-import {MatDivider} from "@angular/material/divider";
-import { HttpClient } from '@angular/common/http';
-import { AuthService } from "../services/auth.service";
+import { Component, OnInit } from '@angular/core';
+import { KosikService } from '../services/kosik.service';
+import { Food } from '../model/food.model';
+import { NgForOf, CommonModule } from '@angular/common'; // Pridajte import CommonModule
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
+import { MatDivider } from '@angular/material/divider';
+import { AuthService } from '../services/auth.service';
+import { Order } from '../model/order.model';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-kosik',
   standalone: true,
   imports: [
     NgForOf,
+    CommonModule, // Pridajte CommonModule
     MatButton,
     MatCard,
     MatCardContent,
@@ -26,37 +30,44 @@ import { AuthService } from "../services/auth.service";
 export class KosikComponent implements OnInit {
   kosik: Food[] = [];
 
-  constructor(private kosikService: KosikService, private http: HttpClient, private authService: AuthService) {}
+  constructor(private kosikService: KosikService, private router: Router, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
-    // Načítanie obsahu košíka pri inicializácii
     this.kosik = this.kosikService.getKosik();
   }
 
   odstranitJedlo(food: Food): void {
     this.kosikService.removeFromKosik(food);
-    // Aktualizujte zoznam jedál v košíku
     this.kosik = this.kosikService.getKosik();
   }
 
   objednat(): void {
-    const token = this.authService.getToken(); // Získanie tokenu
-    if (token) {
-      this.kosikService.odoslatObjednavku(token).subscribe({
-        next: () => {
-          // Vyčistenie košíka po úspešnom odoslaní objednávky
-          this.kosikService.clearKosik();
-          // Aktualizujte košík
-          this.kosik = [];
-          console.log(token);
-          console.log(this.kosik);
-        },
-        error: (error) => {
-          console.error('Chyba pri odoslaní objednávky:', error);
-        }
-      });
-    } else {
-      console.error('Chýbajúci token');
-    }
+    const orderTime = new Date();
+
+    const deliveryTime = new Date();
+    deliveryTime.setMinutes(deliveryTime.getMinutes() + 30);
+
+    const order: Order = {
+      orderTime: orderTime,
+      deliveryTime: deliveryTime,
+      status: 'PENDING'
+    };
+
+    this.kosikService.createOrder(order).subscribe(
+      response => {
+        console.log('Objednávka úspešne odoslaná:', response);
+        this.kosikService.clearKosik();
+        this.router.navigate(['/restauracie']);
+        this.snackBar.open('Objednávka bola vytvorená', 'Zavrieť', {
+          duration: 10000
+        });
+      },
+      error => {
+        console.error('Chyba pri odosielaní objednávky:', error);
+        this.snackBar.open('Chyba pri odosielaní objednávky, skúste to znova', 'Zavrieť', {
+          duration: 10000
+        });
+      }
+    );
   }
 }
