@@ -3,11 +3,12 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {Router, RouterOutlet} from "@angular/router";
 import {MatCard} from "@angular/material/card";
 import {AuthService} from "../services/auth.service";
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-prihlasenie',
   standalone: true,
-  imports: [FormsModule, RouterOutlet, MatCard, ReactiveFormsModule],
+  imports: [FormsModule, RouterOutlet, MatCard, ReactiveFormsModule,CommonModule],
   templateUrl: './prihlasenie.component.html',
   styleUrl: './prihlasenie.component.css'
 })
@@ -17,7 +18,7 @@ export class PrihlasenieComponent {
     password: new FormControl(undefined, Validators.required)
   });
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(public authService: AuthService, private router: Router) {}
 
   login(): void {
     if (this.form.valid) {
@@ -25,27 +26,23 @@ export class PrihlasenieComponent {
         this.authService.login(this.form.controls.username.value, this.form.controls.password.value).subscribe({
           next: () => {
             this.router.navigate(['/']);
-            console.log("prihlasany");
+            alert("Prihlásený");
           },
           error: (e) => {
-            console.log(e);
+            alert(e);
           }
         });
       }else{
-        console.log("prazdne meno heslo");
+        alert("Prázdne meno heslo");
       }
     }else{
-      console.log("neplatny formular");
+      alert("Neplatný formulár");
     }
-  }
-
-  auth(): AuthService {
-    return this.authService;
   }
 
   logout(): void {
     this.authService.logout().subscribe({
-      next: () => console.log('odhlaseny..')
+      next: () => alert('Odhlasený')
     });
   }
 

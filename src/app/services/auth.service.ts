@@ -49,9 +49,10 @@ export class AuthService {
     return null;
   }
 
-  isLogged(): boolean {
+  isLoggedIn(): boolean {
     return this.getToken() !== null;
   }
+
 
   isUser(): boolean {
     const u = this.getUser();
@@ -74,5 +75,4 @@ export class AuthService {
       tap( () => { localStorage.removeItem('token'); localStorage.removeItem('user'); } )
     )
   }
-
 }
