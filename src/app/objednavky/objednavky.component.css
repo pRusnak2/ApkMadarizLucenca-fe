@@ -1,0 +1,40 @@
+
+.food-card {
+  background-color: #FCF9F9;
+  padding: 5px;
+  margin: 20px;
+}
+
+mat-card-title{
+  color: #9D0208;
+  font-weight: bold;
+}
+
+.foods{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.content{
+  margin-left: 60px}
+
+h1{
+  font-weight: bold;
+  color: #7a0003;
+}
+
+.objednavky{
+  margin: 30px;
+  font-weight: bold;
+  color: #7a0003;
+}
+
+.empty {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
