@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { KosikService } from '../services/kosik.service';
 import { Food } from '../model/food.model';
-import { NgForOf, CommonModule } from '@angular/common'; // Pridajte import CommonModule
+import { NgForOf, CommonModule } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 import { MatDivider } from '@angular/material/divider';
-import { AuthService } from '../services/auth.service';
-import { Order } from '../model/order.model';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Order } from '../model/order.model';
 
 @Component({
   selector: 'app-kosik',
   standalone: true,
   imports: [
     NgForOf,
-    CommonModule, // Pridajte CommonModule
+    CommonModule,
     MatButton,
     MatCard,
     MatCardContent,
@@ -43,14 +42,17 @@ export class KosikComponent implements OnInit {
 
   objednat(): void {
     const orderTime = new Date();
-
     const deliveryTime = new Date();
     deliveryTime.setMinutes(deliveryTime.getMinutes() + 30);
+
+    const foodIds = this.kosik.map(food => food.foodId).filter((id): id is number => id !== null); // Filtrovanie null hodnôt
 
     const order: Order = {
       orderTime: orderTime,
       deliveryTime: deliveryTime,
-      status: 'PENDING'
+      status: 'PENDING',
+      foodIds: foodIds,
+      foodNames: [] // Pridajte prázdne pole foodNames
     };
 
     this.kosikService.createOrder(order).subscribe(
