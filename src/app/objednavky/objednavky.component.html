@@ -1,2 +1,39 @@
-<p>objednavky works!</p>
+<h1 class="objednavky">Objednávky</h1>
 
+<div class="foods">
+
+<div *ngIf="objednavky && objednavky.length > 0; else noOrders">
+    <div *ngFor="let objednavka of objednavky">
+      <mat-card class="food-card">
+        <div style="display: flex; justify-content: flex-start; margin-top: 20px">
+        <mat-card-header>
+          <mat-card-title>Objednávka {{ objednavka.orderId }}</mat-card-title>
+          <mat-card-subtitle>{{ objednavka.status }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>Čas vytvorenia: </strong>{{ objednavka.orderTime | date:' HH:mm &nbsp; dd.MM.yyyy' }}</p>
+          <p><strong>Čas doručenia: </strong>{{ objednavka.deliveryTime | date:' HH:mm &nbsp; dd.MM.yyyy' }}</p>
+          <p><strong>Jedlá:</strong></p>
+          <ul>
+            <li *ngFor="let foodName of objednavka.foodNames">{{ foodName }}</li>
+          </ul>
+        </mat-card-content>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <ng-template #noOrders>
+    <mat-card class="food-card">
+      <div style="display: flex; justify-content: flex-start;">
+        <div>
+          <mat-card-header class="empty">
+            <mat-card-title>  <p>Nemáte žiadnu objednávku <br> Prosím vyberte si z ponuky a objednajte si!</p>
+            </mat-card-title>
+          </mat-card-header>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-card>
+  </ng-template>
+</div>
