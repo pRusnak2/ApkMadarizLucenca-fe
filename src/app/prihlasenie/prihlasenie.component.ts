@@ -4,6 +4,7 @@ import {Router, RouterOutlet} from "@angular/router";
 import {MatCard} from "@angular/material/card";
 import {AuthService} from "../services/auth.service";
 import {CommonModule} from "@angular/common";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-prihlasenie',
@@ -18,7 +19,7 @@ export class PrihlasenieComponent {
     password: new FormControl(undefined, Validators.required)
   });
 
-  constructor(public authService: AuthService, private router: Router) {}
+  constructor(public authService: AuthService, private router: Router,private snackBar: MatSnackBar) {}
 
   login(): void {
     if (this.form.valid) {
@@ -26,7 +27,9 @@ export class PrihlasenieComponent {
         this.authService.login(this.form.controls.username.value, this.form.controls.password.value).subscribe({
           next: () => {
             this.router.navigate(['/']);
-            alert("Prihlásený");
+            this.snackBar.open('Boli ste úspešne prihlásený', 'Zavrieť', {
+              duration: 10000
+            });
           },
           error: (e) => {
             alert(e);
@@ -40,10 +43,6 @@ export class PrihlasenieComponent {
     }
   }
 
-  logout(): void {
-    this.authService.logout().subscribe({
-      next: () => alert('Odhlasený')
-    });
-  }
+
 
 }
