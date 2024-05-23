@@ -1,35 +1,54 @@
 import { Component, OnInit } from '@angular/core';
-import { KosikService } from '../services/kosik.service';
-import { Food } from '../model/food.model';
-import { NgForOf, CommonModule } from '@angular/common';
-import { MatButton } from '@angular/material/button';
-import { MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
-import { MatDivider } from '@angular/material/divider';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Food } from '../model/food.model';
+import { KosikService } from '../services/kosik.service';
 import { Order } from '../model/order.model';
+import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
+import {MatDivider} from "@angular/material/divider";
+import {MatButton} from "@angular/material/button";
+import {MatRadioButton, MatRadioGroup} from "@angular/material/radio";
+import {MatCheckbox} from "@angular/material/checkbox";
+import {MatFormField, MatOption, MatSelect} from "@angular/material/select";
+import {MatLabel} from "@angular/material/form-field";
 
 @Component({
   selector: 'app-kosik',
   standalone: true,
   imports: [
-    NgForOf,
     CommonModule,
-    MatButton,
+    FormsModule,
     MatCard,
-    MatCardContent,
-    MatCardHeader,
-    MatCardSubtitle,
     MatCardTitle,
-    MatDivider
+    MatCardContent,
+    MatCardSubtitle,
+    MatCardHeader,
+    MatDivider,
+    MatButton,
+    MatRadioGroup,
+    MatCheckbox,
+    MatRadioButton,
+    MatSelect,
+    MatFormField,
+    MatOption,
+    MatLabel
   ],
   templateUrl: './kosik.component.html',
-  styleUrl: './kosik.component.css'
+  styleUrls: ['./kosik.component.css']
 })
 export class KosikComponent implements OnInit {
   kosik: Food[] = [];
+  paymentMethod: string = 'card';
+  ageVerified: boolean = false;
+  deliveryTimeOption: number = 30;
 
-  constructor(private kosikService: KosikService, private router: Router, private snackBar: MatSnackBar) {}
+  constructor(
+    private kosikService: KosikService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.kosik = this.kosikService.getKosik();
@@ -40,19 +59,34 @@ export class KosikComponent implements OnInit {
     this.kosik = this.kosikService.getKosik();
   }
 
+  getTotalPrice(): number {
+    return this.kosik.reduce((total, food) => total + food.price, 0);
+  }
+
   objednat(): void {
+    // Check if age is verified
+    if (!this.ageVerified) {
+      this.snackBar.open('Pre pokračovanie musíte potvrdiť, že máte viac ako 16 rokov.', 'Zavrieť', {
+        duration: 10000
+      });
+      return;
+    }
+
     const orderTime = new Date();
     const deliveryTime = new Date();
-    deliveryTime.setMinutes(deliveryTime.getMinutes() + 30);
+    deliveryTime.setHours(deliveryTime.getHours() + Math.floor(this.deliveryTimeOption / 60)); // pridá hodiny
+    deliveryTime.setMinutes(deliveryTime.getMinutes() + this.deliveryTimeOption % 60); // pridá minúty
 
-    const foodIds = this.kosik.map(food => food.foodId).filter((id): id is number => id !== null); // Filtrovanie null hodnôt
+
+    const foodIds = this.kosik.map(food => food.foodId).filter(id => id !== null) as number[];
+    const foodNames = this.kosik.map(food => food.name);
 
     const order: Order = {
       orderTime: orderTime,
       deliveryTime: deliveryTime,
       status: 'PENDING',
       foodIds: foodIds,
-      foodNames: [] // Pridajte prázdne pole foodNames
+      foodNames: foodNames
     };
 
     this.kosikService.createOrder(order).subscribe(
