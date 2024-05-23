@@ -45,7 +45,7 @@ export class JedloFormularComponent {
     name: ['', Validators.required],
     description: ['', Validators.required],
     price: ['', Validators.required],
-    restaurantId: ['', Validators.required],
+    restaurantId: [''],
     allergens: [[], Validators.required]
   });
 
@@ -95,3 +95,4 @@ export class JedloFormularComponent {
   ];
 
 }
+
