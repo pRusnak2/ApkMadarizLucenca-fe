@@ -1,5 +1,6 @@
 <h1 class="kosik">Košík</h1>
 
+
 <div class="foods">
   <div *ngFor="let food of kosik" style="flex: 1 1 100%; margin: 10px 0;">
     <mat-card class="food-card">
@@ -19,18 +20,63 @@
       <button mat-raised-button color="warn" (click)="odstranitJedlo(food)">✖️Odstrániť</button>
     </mat-card>
   </div>
-    <div  *ngIf="kosik.length === 0">
-      <mat-card class="food-card">
-        <div style="display: flex; justify-content: flex-start;">
-          <div>
-            <mat-card-header class="empty">
-              <mat-card-title>  <p>Košík je prázdny! <br> Prosím vyberte si z ponuky jedál!</p>
-              </mat-card-title>
-            </mat-card-header>
-          </div>
+
+  <div *ngIf="kosik.length === 0">
+    <mat-card class="food-card">
+      <div style="display: flex; justify-content: flex-start;">
+        <div>
+          <mat-card-header class="empty">
+            <mat-card-title>  <p>Košík je prázdny! <br> Prosím vyberte si z ponuky jedál!</p>
+            </mat-card-title>
+          </mat-card-header>
         </div>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-card>
+  </div>
+
+  <div *ngIf="kosik.length > 0" style="margin-top: 20px;">
+    <mat-card class="summary-card">
+      <mat-card-header>
+        <mat-card-title>Sumár</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+        <p><strong>Celková cena:</strong> {{ getTotalPrice() }}€</p>
         <mat-divider></mat-divider>
-      </mat-card>
-    </div>
-  <button class="button" mat-raised-button color="primary" (click)="objednat()" *ngIf="kosik.length > 0">Objednať</button>
+        <p><strong>Platobná metóda:</strong></p>
+        <mat-radio-group [(ngModel)]="paymentMethod">
+          <mat-radio-button value="card">Karta</mat-radio-button>
+          <mat-radio-button value="cash">Hotovosť</mat-radio-button>
+        </mat-radio-group>
+
+
+        <mat-card class="summary-card">
+          <mat-card-header>
+            <mat-card-title>Čas doručenia</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div>
+              <p><strong>Čas doručenia:</strong></p>
+              <mat-form-field>
+                <mat-label>Vyberte čas doručenia</mat-label>
+                <mat-select [(ngModel)]="deliveryTimeOption">
+                  <mat-option value="30">Čím skôr (do 30 minút)</mat-option>
+                  <mat-option value="45">45 minút</mat-option>
+                  <mat-option value="60">1 hodina</mat-option>
+                  <mat-option value="80">1 hodina 20 minút</mat-option>
+                  <mat-option value="100">1 hodina 40 minút</mat-option>
+                  <mat-option value="150">2 hodiny 30 minút</mat-option>
+                  <mat-option value="200">3 hodiny 20 minút</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <mat-checkbox [(ngModel)]="ageVerified">Potvrdzujem, že mám viac ako 16 rokov a Súhlasím s podmienkami používania QuickEats.sk a podmienkami spracúvania osobných údajov</mat-checkbox>
+            <p></p>
+            <button class="button" mat-raised-button color="primary" (click)="objednat()">Objednať</button>
+          </mat-card-content>
+        </mat-card>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

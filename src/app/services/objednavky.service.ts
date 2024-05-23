@@ -14,4 +14,20 @@ export class ObjednavkyService {
   getOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(this.apiUrlOrderDetail);
   }
+
+  deleteOrder(orderId: number): Observable<void> {
+    const deleteUrl = `${this.apiUrlOrderDetail}/vymazanie/${orderId}`;
+    return this.http.delete<void>(deleteUrl);
+  }
+
+  updateOrderStatus(orderId: number, status: string): Observable<Order> {
+    const updateUrl = `${this.apiUrlOrderDetail}/update/${orderId}`;
+    return this.http.put<Order>(updateUrl, status);
+  }
+
+  getOrdersRestaurant(): Observable<Order[]> {
+    const restaurantUrl = `${this.apiUrlOrderDetail}/restauracia`;
+    return this.http.get<Order[]>(restaurantUrl);
+  }
+
 }

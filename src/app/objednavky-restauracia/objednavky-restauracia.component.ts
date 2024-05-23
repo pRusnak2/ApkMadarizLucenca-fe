@@ -1,28 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { ObjednavkyService } from '../services/objednavky.service';
-import { Order } from '../model/order.model';
-import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
+import { Component } from '@angular/core';
+import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
+import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {MatDivider} from "@angular/material/divider";
-import {CommonModule} from "@angular/common";
+import {Order} from "../model/order.model";
+import {ObjednavkyService} from "../services/objednavky.service";
 
 @Component({
-  selector: 'app-objednavky',
-  templateUrl: './objednavky.component.html',
+  selector: 'app-objednavky-restauracia',
   standalone: true,
-  imports: [
-    MatCardHeader,
-    MatCard,
-    MatCardContent,
-    MatButton,
-    MatDivider,
-    MatCardTitle,
-    CommonModule,
-    MatCardSubtitle
-  ],
-  styleUrls: ['./objednavky.component.css']
+    imports: [
+        DatePipe,
+        MatButton,
+        MatCard,
+        MatCardContent,
+        MatCardHeader,
+        MatCardSubtitle,
+        MatCardTitle,
+        MatDivider,
+        NgForOf,
+        NgIf
+    ],
+  templateUrl: './objednavky-restauracia.component.html',
+  styleUrl: './objednavky-restauracia.component.css'
 })
-export class ObjednavkyComponent implements OnInit {
+export class ObjednavkyRestauraciaComponent {
 
   objednavky: Order[] = [];
 
@@ -33,7 +35,7 @@ export class ObjednavkyComponent implements OnInit {
   }
 
   loadOrders(): void {
-    this.objednavkyService.getOrders().subscribe(
+    this.objednavkyService.getOrdersRestaurant().subscribe(
       (data) => {
         this.objednavky = data;
       },
@@ -70,5 +72,6 @@ export class ObjednavkyComponent implements OnInit {
       );
     }
   }
+
 
 }
