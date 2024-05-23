@@ -9,6 +9,12 @@
             <mat-card-title>Objednávka {{ objednavka.orderId }}</mat-card-title>
             <mat-card-subtitle>{{ objednavka.status }}</mat-card-subtitle>
           </mat-card-header>
+          <div>
+            <button mat-button color="warn" (click)="deleteOrder(objednavka.orderId)">Vymazat</button>
+            <button mat-button color="primary" (click)="updateOrderStatus(objednavka, 'Prijatá')">Prijatá</button>
+            <button mat-button color="primary" (click)="updateOrderStatus(objednavka, 'Odoslaná')">Odoslaná</button>
+
+          </div>
         </div>
         <mat-card-content>
           <p><strong>Čas vytvorenia: </strong>{{ objednavka.orderTime | date:' HH:mm &nbsp; dd.MM.yyyy' }}</p>
