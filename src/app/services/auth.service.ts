@@ -13,7 +13,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<any> {
-    console.log("bbbbbbbbbbbbbbbbbbbbbb");
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Basic ' + btoa(username +':'+ password)
@@ -28,10 +27,11 @@ export class AuthService {
   }
 
   setToken(token: string|null) {
-    if (token != null)
+    if (token != null) {
       localStorage.setItem('token', token);
-    else
+    } else {
       localStorage.removeItem('token');
+    }
   }
 
   getToken(): string | null {
@@ -39,7 +39,15 @@ export class AuthService {
   }
 
   setUser(user: UserRolesDto) {
-    localStorage.setItem('user', JSON.stringify(user));
+    console.log(user)
+    console.log(user.userName);
+    const userToSave = {
+      username: user.userName,
+      role: user.role
+    };
+    console.log(userToSave)
+    localStorage.setItem('user', JSON.stringify(userToSave));
+    console.log(userToSave)
   }
 
   getUser(): UserRolesDto|null {
@@ -56,7 +64,7 @@ export class AuthService {
 
   isUser(): boolean {
     const u = this.getUser();
-    if (u == null || u.roles.indexOf('ROLE_USER') == -1) {
+    if (u == null || u.role.indexOf('ROLE_USER') == -1) {
       return false;
     }
     return true;
@@ -64,7 +72,7 @@ export class AuthService {
 
   isAdmin(): boolean {
     const u = this.getUser();
-    if (u == null || u.roles.indexOf('ROLE_ADMIN') == -1) {
+    if (u == null || u.role.indexOf('ROLE_ADMIN') == -1) {
       return false;
     }
     return true;

@@ -1,6 +1,6 @@
 export interface UserRolesDto{
-  username: string;
-  roles: string[];
+  userName: string;
+  role: string;
 }
 
 export class Zakaznik {
