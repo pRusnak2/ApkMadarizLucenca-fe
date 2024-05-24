@@ -1,3 +1,6 @@
+
+
+
 <div class="foodFormular">
 
   <mat-card class="foodForm">
@@ -26,13 +29,6 @@
         <mat-label for="price">Cena:</mat-label>
         <input matInput type="text" id="price" name="price" formControlName="price" required>
       </mat-form-field><br>
-
-      <!--      Dočasne kým nemáme rolu reštaurácie-->
-      <mat-form-field>
-        <mat-label for="restaurantId">ID reštaurácie:</mat-label>
-        <input matInput type="text" id="restaurantId" name="restaurantId" formControlName="restaurantId" required>
-      </mat-form-field><br>
-
 
       <button mat-flat-button type="submit" [disabled]="!formular.valid" >Odoslať</button>
     </form>

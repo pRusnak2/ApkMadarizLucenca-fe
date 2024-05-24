@@ -11,6 +11,7 @@ import {JedloFormularComponent} from "./jedlo-formular/jedlo-formular.component"
 import {KosikComponent} from "./kosik/kosik.component";
 import {CastoKladeneOtazkyComponent} from "./footer content/casto-kladene-otazky/casto-kladene-otazky.component";
 import {ONasComponent} from "./footer content/o-nas/o-nas.component";
+import {ObjednavkyRestauraciaComponent} from "./objednavky-restauracia/objednavky-restauracia.component";
 
 
 export const routes: Routes = [
@@ -26,4 +27,6 @@ export const routes: Routes = [
   {path: 'jedlo-formular', component: JedloFormularComponent},
   {path: 'casto-kladene-otazky', component: CastoKladeneOtazkyComponent},
   {path: 'o-nas', component: ONasComponent},
+  {path: 'objednavky-restauracia', component: ObjednavkyRestauraciaComponent},
+
 ];

@@ -3,4 +3,6 @@ export interface Order {
   orderTime: Date;
   deliveryTime: Date;
   status: string;
+  foodIds: number[];
+  foodNames: string[]; // Pridajte tento riadok
 }
