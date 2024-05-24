@@ -39,15 +39,11 @@ export class AuthService {
   }
 
   setUser(user: UserRolesDto) {
-    console.log(user)
-    console.log(user.userName);
     const userToSave = {
       username: user.userName,
       role: user.role
     };
-    console.log(userToSave)
     localStorage.setItem('user', JSON.stringify(userToSave));
-    console.log(userToSave)
   }
 
   getUser(): UserRolesDto|null {
