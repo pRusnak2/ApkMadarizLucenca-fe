@@ -5,7 +5,7 @@ import { Food } from '../model/food.model';
 import {FormsModule} from "@angular/forms";
 import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {MatDivider} from "@angular/material/divider";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {Restauracia} from "../model/restauracia.model";
 import {RestauraciaService} from "../services/restauracia.service";
 import {MatButton} from "@angular/material/button";
@@ -16,6 +16,7 @@ import {MatList, MatListItem} from "@angular/material/list";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import { KosikService } from '../services/kosik.service';
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {AuthService} from "../services/auth.service";
 
 
 @Component({
@@ -39,7 +40,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     MatListItem,
     MatMenuItem,
     MatMenu,
-    MatMenuTrigger
+    MatMenuTrigger,
+    NgIf
   ],
   templateUrl: './restauracia-detail.component.html',
   styleUrl: './restauracia-detail.component.css'
@@ -49,7 +51,7 @@ export class RestauraciaDetailComponent implements OnInit {
   foods: Food[] = [];
   restaurantId: number =0;
 
-  constructor(private route: ActivatedRoute, private foodService: FoodService, private restauraciaService: RestauraciaService, private kosikService: KosikService, private snackBar: MatSnackBar ) {}
+  constructor(private route: ActivatedRoute, private foodService: FoodService, private restauraciaService: RestauraciaService, private kosikService: KosikService, private snackBar: MatSnackBar, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -121,11 +123,14 @@ export class RestauraciaDetailComponent implements OnInit {
     }
   }
 
-
   addToCart(food: Food): void {
     this.kosikService.addToKosik(food);
     this.snackBar.open(`${food.name} bolo pridané do košíka.`, 'Zavrieť', {
       duration: 3000
     });
+  }
+
+  auth(): AuthService{
+    return this.authService;
   }
 }

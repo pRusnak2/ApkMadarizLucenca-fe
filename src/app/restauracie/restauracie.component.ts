@@ -12,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import {MatFormField} from "@angular/material/form-field";
 import {MatOption, MatSelect, MatSelectChange} from "@angular/material/select";
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-restauracie',
@@ -23,7 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 export class RestauracieComponent implements OnInit {
   restauracie: Restauracia[] = [];
 
-  constructor(private restauraciaService: RestauraciaService) { }
+  constructor(private restauraciaService: RestauraciaService, private authService: AuthService) { }
 
   ngOnInit(): void {
     // @ts-ignore
@@ -69,9 +70,6 @@ export class RestauracieComponent implements OnInit {
     );
   }
 
-
-
-
   getImage(type: string): string {
     switch(type) {
       case 'fastfood':
@@ -87,5 +85,8 @@ export class RestauracieComponent implements OnInit {
     }
   }
 
+  auth(): AuthService{
+    return this.authService;
+  }
 
 }

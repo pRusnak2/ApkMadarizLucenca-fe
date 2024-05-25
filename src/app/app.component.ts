@@ -32,4 +32,8 @@ export class AppComponent {
       }
     });
   }
+
+  auth(): AuthService{
+    return this.authService;
+  }
 }

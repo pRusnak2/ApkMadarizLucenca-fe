@@ -1,23 +1,31 @@
 <nav>
   <a class="logo" routerLink="/"><img ngSrc="assets/img/logo_final.png" alt="logo" width="200" height="45" /></a>
   <a routerLink="/restauracie">Reštaurácie</a>
-  <a routerLink="/objednavky">Objednavky</a>
-  <a routerLink="/objednavky-restauracia">Objednavky-rest.</a>
 
+  <a *ngIf="auth().isCustomer() || auth().isAdmin() || !auth().isLoggedIn()" routerLink="/objednavky">Objednavky</a>
 
-  <a routerLink="/kosik">🛒Košík</a>
+  <ng-container *ngIf="auth().isLoggedIn()">
+    <a *ngIf="auth().isRestaurant() || auth().isAdmin()" routerLink="/objednavky-restauracia">Objednavky-rest.</a>
+  </ng-container>
+
+  <ng-container>
+    <a *ngIf="auth().isCustomer() || auth().isAdmin() || !auth().isLoggedIn()" routerLink="/kosik">🛒Košík</a>
+  </ng-container>
+
   <div class="dropdown">
     <button class="dropbtn">Prihlásenie</button>
     <div class="dropdown-content">
       <ng-container *ngIf="!authService.isLoggedIn(); else loggedIn">
         <a routerLink="/prihlasenie">Prihlásiť sa</a>
+        <a routerLink="/registracia">Registrácia</a>
+        <a routerLink="/restauracia-formular">Registrácia reštaurácie</a>
       </ng-container>
       <ng-template #loggedIn>
         <a routerLink="/" (click)="logout()">Odhlásiť sa</a>
       </ng-template>
-      <a routerLink="/registracia">Registrácia</a>
-      <a routerLink="/restauracia-formular">Nová reštaurácia</a>
-      <a routerLink="/jedlo-formular">Nové jedlo</a>
+      <ng-container *ngIf="auth().isLoggedIn()">
+        <a *ngIf="auth().isRestaurant()" routerLink="/jedlo-formular">Nové jedlo</a>
+      </ng-container>
     </div>
   </div>
 </nav>

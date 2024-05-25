@@ -58,20 +58,30 @@ export class AuthService {
   }
 
 
-  isUser(): boolean {
+  isCustomer(): boolean {
     const u = this.getUser();
-    if (u == null || u.role.indexOf('ROLE_USER') == -1) {
-      return false;
+    if (u?.role.indexOf("CUSTOMER") != -1) {
+      return true;
     }
-    return true;
+    return false;
   }
 
   isAdmin(): boolean {
     const u = this.getUser();
-    if (u == null || u.role.indexOf('ROLE_ADMIN') == -1) {
-      return false;
+    if (u?.role.indexOf('ADMIN') != -1) {
+      return true;
     }
-    return true;
+    return false;
+  }
+
+  isRestaurant(): boolean {
+    const u = this.getUser();
+    console.log("som v isRestaurant() funkcii\n");
+    console.log("hodnota toho: " + u?.role.indexOf("RESTAURANT"));
+    if (u?.role.indexOf('RESTAURANT') != -1) {
+      return true;
+    }
+    return false;
   }
 
   logout(): Observable<any> {

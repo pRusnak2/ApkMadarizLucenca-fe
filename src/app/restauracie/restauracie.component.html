@@ -52,7 +52,10 @@
             <p><strong>PSČ:</strong> {{ restauracia.postCode }}</p>
             <button mat-raised-button color="primary" [routerLink]="['/restauracia-detail', restauracia.restaurantId]">Ponuka jedál</button>
             &nbsp;
-            <button mat-raised-button color="warn" (click)="vymazReatauraciu(restauracia.restaurantId)">Vymazať Reštauráciu</button>
+            <div *ngIf="auth().isLoggedIn()">
+              <button *ngIf="auth().isAdmin()" mat-raised-button color="warn" (click)="vymazReatauraciu(restauracia.restaurantId)">Vymazať Reštauráciu</button>
+            </div>
+
           </mat-card-content>
         </div>
       </div>

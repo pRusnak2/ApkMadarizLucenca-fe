@@ -56,9 +56,13 @@
             <p> {{ food.description }}</p>
             <mat-card-subtitle>Alergény: {{ food.allergens }}</mat-card-subtitle>
             <p><strong>Cena:</strong> {{ food.price }}€</p>
-            <button mat-raised-button color="primary" (click)="addToCart(food)">Pridať do košíka</button>
+            <button *ngIf="!auth().isLoggedIn() || auth().isCustomer() || auth().isAdmin()"
+                    mat-raised-button color="primary" (click)="addToCart(food)">Pridať do košíka</button>
             &nbsp;
-            <button mat-raised-button color="warn" (click)="deleteFoodById(food.foodId)">Vymazať jedlo</button>
+            <ng-container *ngIf="auth().isLoggedIn()">
+              <button *ngIf="auth().isRestaurant() || auth().isAdmin()"
+                      mat-raised-button color="warn" (click)="deleteFoodById(food.foodId)">Vymazať jedlo</button>
+            </ng-container>
           </mat-card-content>
         </div>
       </div>
