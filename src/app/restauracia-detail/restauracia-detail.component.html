@@ -24,7 +24,9 @@
 
 <mat-divider></mat-divider>
 
-
+<div [ngClass]="{'alert-message': true, 'hidden': !showAlert}">
+  Prosím, prihláste sa pre pokračovanie.
+</div>
 
 <mat-card class="filtBar">
   <div class="filters">

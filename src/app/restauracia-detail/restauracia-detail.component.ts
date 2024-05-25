@@ -5,7 +5,7 @@ import { Food } from '../model/food.model';
 import {FormsModule} from "@angular/forms";
 import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {MatDivider} from "@angular/material/divider";
-import {NgForOf, NgIf} from "@angular/common";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {Restauracia} from "../model/restauracia.model";
 import {RestauraciaService} from "../services/restauracia.service";
 import {MatButton} from "@angular/material/button";
@@ -41,7 +41,8 @@ import {AuthService} from "../services/auth.service";
     MatMenuItem,
     MatMenu,
     MatMenuTrigger,
-    NgIf
+    NgIf,
+    NgClass
   ],
   templateUrl: './restauracia-detail.component.html',
   styleUrl: './restauracia-detail.component.css'
@@ -58,6 +59,9 @@ export class RestauraciaDetailComponent implements OnInit {
       this.restaurantId = +params['restaurantId'];
       this.loadFoods();
       this.loadRestauracia();
+      if (!this.authService.isLoggedIn()) {
+        this.notlogin();
+      }
     });
   }
 
@@ -81,6 +85,14 @@ export class RestauraciaDetailComponent implements OnInit {
         console.error('Chyba pri načítaní reštaurácie', error);
       }
     });
+  }
+
+  showAlert = false;
+  notlogin(): void {
+    this.showAlert = true;
+    setTimeout(() => {
+      this.showAlert = false;
+    }, 3000);
   }
 
   deleteFoodById(foodId: number | null): void {

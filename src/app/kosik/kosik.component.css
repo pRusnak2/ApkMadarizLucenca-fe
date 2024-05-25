@@ -41,3 +41,27 @@ h1{
 .button{
  margin-bottom: 20px;
 }
+
+.alert-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #808080;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.alert-message.hidden {
+  opacity: 0;
+  pointer-events: none;
+}

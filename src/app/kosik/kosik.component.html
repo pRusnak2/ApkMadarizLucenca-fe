@@ -21,6 +21,10 @@
     </mat-card>
   </div>
 
+  <div [ngClass]="{'alert-message': true, 'hidden': !showAlert}">
+    Prosím, prihláste sa pre pokračovanie.
+  </div>
+
   <div *ngIf="kosik.length === 0">
     <mat-card class="food-card">
       <div style="display: flex; justify-content: flex-start;">

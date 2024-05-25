@@ -1,5 +1,9 @@
 <h1 class="objednavky">Objednávky</h1>
 
+<div [ngClass]="{'alert-message': true, 'hidden': !showAlert}">
+  Prosím, prihláste sa pre pokračovanie.
+</div>
+
 <div class="foods">
   <div *ngIf="objednavky && objednavky.length > 0; else noOrders">
     <div *ngFor="let objednavka of objednavky">

@@ -13,6 +13,7 @@ import {MatRadioButton, MatRadioGroup} from "@angular/material/radio";
 import {MatCheckbox} from "@angular/material/checkbox";
 import {MatFormField, MatOption, MatSelect} from "@angular/material/select";
 import {MatLabel} from "@angular/material/form-field";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-kosik',
@@ -47,11 +48,23 @@ export class KosikComponent implements OnInit {
   constructor(
     private kosikService: KosikService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private authService: AuthService,
   ) {}
 
   ngOnInit(): void {
     this.kosik = this.kosikService.getKosik();
+    if (!this.authService.isLoggedIn()) {
+      this.notlogin();
+    }
+  }
+
+  showAlert = false;
+  notlogin(): void {
+    this.showAlert = true;
+    setTimeout(() => {
+      this.showAlert = false;
+    }, 3000);
   }
 
   odstranitJedlo(food: Food): void {

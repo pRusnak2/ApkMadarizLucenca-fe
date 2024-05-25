@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ObjednavkyService } from '../services/objednavky.service';
 import { Order } from '../model/order.model';
 import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {MatButton} from "@angular/material/button";
 import {MatDivider} from "@angular/material/divider";
 import {CommonModule} from "@angular/common";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-objednavky',
@@ -22,14 +23,17 @@ import {CommonModule} from "@angular/common";
   ],
   styleUrls: ['./objednavky.component.css']
 })
-export class ObjednavkyComponent implements OnInit {
+export class ObjednavkyComponent implements OnInit{
 
   objednavky: Order[] = [];
 
-  constructor(private objednavkyService: ObjednavkyService) {}
+  constructor(private objednavkyService: ObjednavkyService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loadOrders();
+    if (!this.authService.isLoggedIn()) {
+      this.notlogin();
+    }
   }
 
   loadOrders(): void {
@@ -41,6 +45,14 @@ export class ObjednavkyComponent implements OnInit {
         console.error('chyba pri nacitavani:', error);
       }
     );
+  }
+
+  showAlert = false;
+  notlogin(): void {
+    this.showAlert = true;
+    setTimeout(() => {
+      this.showAlert = false;
+    }, 3000);
   }
 
   deleteOrder(orderId: number | undefined): void {
@@ -70,5 +82,7 @@ export class ObjednavkyComponent implements OnInit {
       );
     }
   }
+
+
 
 }
