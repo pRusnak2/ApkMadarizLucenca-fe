@@ -24,7 +24,7 @@
         <a routerLink="/" (click)="logout()">Odhlásiť sa</a>
       </ng-template>
       <ng-container *ngIf="auth().isLoggedIn()">
-        <a *ngIf="auth().isRestaurant()" routerLink="/jedlo-formular">Nové jedlo</a>
+        <a *ngIf="auth().isRestaurant() || auth().isAdmin()" routerLink="/jedlo-formular">Nové jedlo</a>
       </ng-container>
     </div>
   </div>
