@@ -49,7 +49,6 @@ export class ObjednavkyRestauraciaComponent {
     if (orderId !== undefined) {
       this.objednavkyService.deleteOrder(orderId).subscribe(
         () => {
-
           this.loadOrders();
         },
         (error) => {
@@ -63,7 +62,6 @@ export class ObjednavkyRestauraciaComponent {
     if (objednavka.orderId !== undefined) {
       this.objednavkyService.updateOrderStatus(objednavka.orderId, newStatus).subscribe(
         () => {
-
           this.loadOrders();
         },
         (error) => {
@@ -72,6 +70,4 @@ export class ObjednavkyRestauraciaComponent {
       );
     }
   }
-
-
 }

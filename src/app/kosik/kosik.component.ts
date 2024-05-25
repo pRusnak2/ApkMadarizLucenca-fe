@@ -45,6 +45,14 @@ export class KosikComponent implements OnInit {
   ageVerified: boolean = false;
   deliveryTimeOption: number = 30;
 
+  customerTelNumber!: number;
+  customerEmail!: string;
+  customerStreetName!: string;
+  customerCityName!: string;
+  customerPostCode?: number;
+  customerFirstName!: string;
+  customerLastName!: string;
+
   constructor(
     private kosikService: KosikService,
     private router: Router,
@@ -87,8 +95,8 @@ export class KosikComponent implements OnInit {
 
     const orderTime = new Date();
     const deliveryTime = new Date();
-    deliveryTime.setHours(deliveryTime.getHours() + Math.floor(this.deliveryTimeOption / 60)); // pridá hodiny
-    deliveryTime.setMinutes(deliveryTime.getMinutes() + this.deliveryTimeOption % 60); // pridá minúty
+    deliveryTime.setHours(deliveryTime.getHours() + Math.floor(this.deliveryTimeOption / 60));
+    deliveryTime.setMinutes(deliveryTime.getMinutes() + this.deliveryTimeOption % 60);
 
 
     const foodIds = this.kosik.map(food => food.foodId).filter(id => id !== null) as number[];
@@ -99,7 +107,15 @@ export class KosikComponent implements OnInit {
       deliveryTime: deliveryTime,
       status: 'PENDING',
       foodIds: foodIds,
-      foodNames: foodNames
+      foodNames: foodNames,
+
+      customerTelNumber: this.customerTelNumber,
+      customerEmail: this.customerEmail,
+      customerStreetName: this.customerStreetName,
+      customerCityName: this.customerCityName,
+      customerPostCode: this.customerPostCode !== undefined ? this.customerPostCode : 0,
+      customerFirstName: this.customerFirstName,
+      customerLastName: this.customerLastName
     };
 
     this.kosikService.createOrder(order).subscribe(

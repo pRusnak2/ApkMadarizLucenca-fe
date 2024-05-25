@@ -4,5 +4,12 @@ export interface Order {
   deliveryTime: Date;
   status: string;
   foodIds: number[];
-  foodNames: string[]; // Pridajte tento riadok
+  foodNames: string[];
+  customerTelNumber: number;
+  customerEmail: string;
+  customerStreetName: string;
+  customerCityName: string;
+  customerPostCode: number;
+  customerFirstName: string;
+  customerLastName: string;
 }

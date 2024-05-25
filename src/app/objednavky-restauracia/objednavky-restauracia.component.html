@@ -13,7 +13,6 @@
             <button mat-button color="warn" (click)="deleteOrder(objednavka.orderId)">Vymazat</button>
             <button mat-button color="primary" (click)="updateOrderStatus(objednavka, 'Prijatá')">Prijatá</button>
             <button mat-button color="primary" (click)="updateOrderStatus(objednavka, 'Odoslaná')">Odoslaná</button>
-
           </div>
         </div>
         <mat-card-content>
@@ -23,6 +22,13 @@
           <ul>
             <li *ngFor="let foodName of objednavka.foodNames">{{ foodName }}</li>
           </ul>
+          <p><strong>Meno: </strong>{{ objednavka.customerFirstName }}</p>
+          <p><strong>Priezvisko: </strong>{{ objednavka.customerLastName }}</p>
+          <p><strong>Ulica: </strong>{{ objednavka.customerStreetName }}</p>
+          <p><strong>Mesto: </strong>{{ objednavka.customerCityName }}</p>
+          <p><strong>PSČ: </strong>{{ objednavka.customerPostCode }}</p>
+          <p><strong>Telefónne číslo: </strong>0{{ objednavka.customerTelNumber }}</p>
+          <p><strong>Email: </strong>{{ objednavka.customerEmail }}</p>
         </mat-card-content>
       </mat-card>
     </div>
