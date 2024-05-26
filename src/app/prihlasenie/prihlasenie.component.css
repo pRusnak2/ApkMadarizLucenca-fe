@@ -37,3 +37,9 @@ input[type="submit"]:hover {
   display: flex;
   justify-content: center;
 }
+
+.logForm {
+  background-color: #FCF9F9;
+  padding: 5px;
+  margin: 110px;
+}
